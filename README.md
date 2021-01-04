@@ -1,8 +1,8 @@
 <p align="center"><br><img src="https://user-images.githubusercontent.com/236501/85893648-1c92e880-b7a8-11ea-926d-95355b8175c7.png" width="128" height="128" /></p>
-<h3 align="center">Example</h3>
-<p align="center"><strong><code>@capacitor-community/example</code></strong></p>
+<h3 align="center">App Icon</h3>
+<p align="center"><strong><code>@capacitor-community/app-icon</code></strong></p>
 <p align="center">
-  Capacitor community plugin for something awesome.
+  Capacitor community plugin for changing an iOS app icon.
 </p>
 
 <p align="center">
@@ -21,11 +21,14 @@
 
 | Maintainer | GitHub | Social |
 | -----------| -------| -------|
-| Ionitron (example) | [Ionitron](https://github.com/ionitron) | [@ionitron](https://twitter.com/ionitron) |
+| John Borges | [johnborges](https://github.com/johnborges) | [@johnborges](https://twitter.com/johnborges) |
 
 ## Installation
 
-TODO
+```bash
+npm install @capacitor-community/http
+npx cap sync
+```
 
 ## Configuration
 

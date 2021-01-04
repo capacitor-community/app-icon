@@ -1,0 +1,67 @@
+{
+  "name": "@capacitor-community/app-icon",
+  "version": "0.0.1",
+  "description": "Capacitor community plugin for changing an iOS app icon.",
+  "main": "dist/plugin.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "scripts": {
+    "lint": "npm run prettier -- --check && npm run swiftlint -- lint",
+    "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
+    "swiftlint": "node-swiftlint",
+    "build": "npm run clean && tsc && rollup -c rollup.config.js",
+    "clean": "rimraf ./dist",
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build",
+    "npm-publish": "np"
+  },
+  "author": "johnborges",
+  "license": "MIT",
+  "devDependencies": {
+    "@capacitor/core": "^2.4.5",
+    "@capacitor/ios": "^2.4.5",
+    "@ionic/prettier-config": "^1.0.0",
+    "@ionic/swiftlint-config": "^1.0.0",
+    "@rollup/plugin-node-resolve": "^8.1.0",
+    "prettier": "^2.0.5",
+    "prettier-plugin-java": "^0.8.0",
+    "rimraf": "^3.0.0",
+    "rollup": "^2.21.0",
+    "swiftlint": "^1.0.1",
+    "typescript": "~3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "peerDependencies": {
+    "@capacitor/core": "^2.4.5"
+  },
+  "files": [
+    "dist/",
+    "ios/",
+    "android/",
+    "AppIcon.podspec"
+  ],
+  "keywords": [
+    "capacitor",
+    "plugin",
+    "native",
+    "icon"
+  ],
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    }
+  },
+  "prettier": "@ionic/prettier-config",
+  "swiftlint": "@ionic/swiftlint-config",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnborges/app-icon"
+  },
+  "bugs": {
+    "url": "https://github.com/johnborges/app-icon"
+  }
+}
