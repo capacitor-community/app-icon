@@ -5,5 +5,7 @@ declare module '@capacitor/core' {
 }
 
 export interface AppIconPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
+  supportsAlternateIcons(): Promise<boolean>;
+  // alternateIconName(): Promise<string>;
+  // setAlternateIconName(name: string): Promise<any>;
 }

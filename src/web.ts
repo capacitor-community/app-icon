@@ -9,10 +9,10 @@ export class AppIconWeb extends WebPlugin implements AppIconPlugin {
     });
   }
 
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
-    return options;
+  async supportsAlternateIcons(): Promise<boolean> {
+    throw new Error("supportsAlternateIcons not available");
   }
+
 }
 
 const AppIcon = new AppIconWeb();

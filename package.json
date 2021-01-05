@@ -41,7 +41,6 @@
   "files": [
     "dist/",
     "ios/",
-    "android/",
     "AppIcon.podspec"
   ],
   "keywords": [
