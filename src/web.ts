@@ -9,8 +9,20 @@ export class AppIconWeb extends WebPlugin implements AppIconPlugin {
     });
   }
 
-  async supportsAlternateIcons(): Promise<boolean> {
+  async supportsAlternateIcons(): Promise<{value: boolean}> {
     throw new Error("supportsAlternateIcons not available");
+  }
+
+  async appIconBadgeNumber(): Promise<{value: number}> {
+    throw new Error("appIconBadgeNumber not available");
+  }
+
+  async alternateIconName(): Promise<{value: string}> {
+    throw new Error("appIconBadgeNumber not available");
+  }
+
+  async setAlternateIconName(): Promise<any> {
+    throw new Error("setAlternateIconName not available");
   }
 
 }

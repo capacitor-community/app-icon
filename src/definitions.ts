@@ -4,8 +4,10 @@ declare module '@capacitor/core' {
   }
 }
 
+
 export interface AppIconPlugin {
-  supportsAlternateIcons(): Promise<boolean>;
-  // alternateIconName(): Promise<string>;
-  // setAlternateIconName(name: string): Promise<any>;
+  supportsAlternateIcons(): Promise<{value: boolean}>;
+  appIconBadgeNumber(): Promise<{value: number}>;
+  alternateIconName(): Promise<{value: string}>;
+  setAlternateIconName(name: string, showNotification: boolean): Promise<any>;
 }
