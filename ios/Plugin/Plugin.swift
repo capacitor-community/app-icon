@@ -29,6 +29,27 @@ public class AppIcon: CAPPlugin {
     }
 
     @objc func setAlternateIconName(_ call: CAPPluginCall) {
+        DispatchQueue.main.sync {
+            guard UIApplication.shared.supportsAlternateIcons else {
+                call.reject("Alternate icons is not supported.")
+                return;
+            }
+        }
         
+        guard let iconName = call.options["name"] as? String else {
+            call.reject("Must provide an icon name.")
+            return
+        }
+        
+        DispatchQueue.main.sync {
+            UIApplication.shared.setAlternateIconName(iconName) { (error) in
+                // After app icon changed, print our error or success message
+                if let error = error {
+                    call.reject("App icon failed to due to \(error.localizedDescription)")
+                } else {
+                    call.resolve(["value": "App icon changed successfully."])
+                }
+            }
+        }
     }
 }
