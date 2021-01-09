@@ -1,0 +1,26 @@
+{
+  "name": "example",
+  "private": true,
+  "version": "0.0.1",
+  "description": "example",
+  "license": "MIT",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watch",
+    "generate": "stencil generate"
+  },
+  "devDependencies": {
+    "@ionic/core": "^5.3.2",
+    "@stencil/core": "^2.0.1"
+  },
+  "dependencies": {
+    "@capacitor-community/app-icon": "npm:app-icon@^0.0.1",
+    "@capacitor/cli": "^2.4.5",
+    "@capacitor/core": "^2.4.5"
+  }
+}
