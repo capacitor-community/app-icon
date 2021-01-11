@@ -13,15 +13,15 @@ export class AppIconWeb extends WebPlugin implements AppIconPlugin {
     throw new Error("supportsAlternateIcons not available");
   }
 
-  async appIconBadgeNumber(): Promise<{value: number}> {
+  // async appIconBadgeNumber(): Promise<{value: number}> {
+  //   throw new Error("appIconBadgeNumber not available");
+  // }
+
+  async getName(): Promise<{value: string | null}> {
     throw new Error("appIconBadgeNumber not available");
   }
 
-  async alternateIconName(): Promise<{value: string}> {
-    throw new Error("appIconBadgeNumber not available");
-  }
-
-  async setAlternateIconName(): Promise<any> {
+  async change(): Promise<any> {
     throw new Error("setAlternateIconName not available");
   }
 

@@ -12,15 +12,15 @@ public class AppIcon: CAPPlugin {
         }
     }
 
-    @objc func appIconBadgeNumber(_ call: CAPPluginCall) {
-        DispatchQueue.main.sync {
-            call.resolve([
-                "value": UIApplication.shared.applicationIconBadgeNumber
-            ]);
-        }
-    }
+//    @objc func appIconBadgeNumber(_ call: CAPPluginCall) {
+//        DispatchQueue.main.sync {
+//            call.resolve([
+//                "value": UIApplication.shared.applicationIconBadgeNumber
+//            ]);
+//        }
+//    }
 
-    @objc func alternateIconName(_ call: CAPPluginCall) {
+    @objc func getName(_ call: CAPPluginCall) {
         DispatchQueue.main.sync {
             call.resolve([
                 "value": UIApplication.shared.alternateIconName
@@ -28,14 +28,7 @@ public class AppIcon: CAPPlugin {
         }
     }
 
-    @objc func setAlternateIconName(_ call: CAPPluginCall) {
-        DispatchQueue.main.sync {
-            guard UIApplication.shared.supportsAlternateIcons else {
-                call.reject("Alternate icons is not supported.")
-                return;
-            }
-        }
-        
+    @objc func change(_ call: CAPPluginCall) {
         guard let iconName = call.options["name"] as? String else {
             call.reject("Must provide an icon name.")
             return

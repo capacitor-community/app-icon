@@ -7,7 +7,7 @@ declare module '@capacitor/core' {
 
 export interface AppIconPlugin {
   supportsAlternateIcons(): Promise<{value: boolean}>;
-  appIconBadgeNumber(): Promise<{value: number}>;
-  alternateIconName(): Promise<{value: string}>;
-  setAlternateIconName(name: string, showNotification: boolean): Promise<any>;
+  // appIconBadgeNumber(): Promise<{value: number}>;
+  getName(): Promise<{value: string | null}>;
+  change(iconName: string): Promise<any>;
 }
