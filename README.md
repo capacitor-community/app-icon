@@ -26,14 +26,23 @@
 ## Installation
 
 ```bash
-npm install @capacitor-community/http
+npm install @capacitor-community/app-icon
 npx cap sync
 ```
 
 ## Configuration
 
-TODO
+### Add Alternate Icons
+
+The alternate icons need to be included within the app bundle and referenced in the iOS project `Info.plist` prior to using this plugin. It is not possible to switch to any icon on the fly without adding it to the iOS project first.
+
+Add the alternate icons directly to your iOS project or in a subdirectory.
+
+
+### Setup Info.plist
 
 ## Usage
+
+> This plugin only changes the main app icon on the device homescreen. The icon in springboard and in other areas of iOS will not change and continue to show the original app icon.
 
 TODO
