@@ -73,5 +73,22 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+    <key>CFBundleIcons</key>
+    <dict>
+        <key>CFBundleAlternateIcons</key>
+        <dict>
+            <!-- The name you use in code -->
+            <key>ionic-icon</key>
+            <dict>
+                <key>UIPrerenderedIcon</key>
+                <true/>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <!-- The actual filenames. Don't list the @2x/@3x files here, and you can use just the biggest one if you like -->
+                    <string>ionic-icon</string>
+                </array>
+            </dict>
+        </dict>
+    </dict>
 </dict>
 </plist>

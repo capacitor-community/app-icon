@@ -8,7 +8,7 @@
     "dist/"
   ],
   "scripts": {
-    "build": "stencil build",
+    "build": "stencil build --dev",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watch",
@@ -19,7 +19,7 @@
     "@stencil/core": "^2.0.1"
   },
   "dependencies": {
-    "@capacitor-community/app-icon": "npm:app-icon@^0.0.1",
+    "@capacitor-community/app-icon": "^0.0.1",
     "@capacitor/cli": "^2.4.5",
     "@capacitor/core": "^2.4.5"
   }
