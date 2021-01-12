@@ -9,22 +9,25 @@ export class AppIconWeb extends WebPlugin implements AppIconPlugin {
     });
   }
 
-  async supportsAlternateIcons(): Promise<{value: boolean}> {
-    throw new Error("supportsAlternateIcons not available");
+  async isSupported(): Promise<{value: boolean}> {
+    throw new Error("isSupported not available");
   }
-
+  
+  async getName(): Promise<{value: string | null}> {
+    throw new Error("getName not available");
+  }
+  
+  async change(): Promise<any> {
+    throw new Error("change not available");
+  }
+  
+  async reset(): Promise<any> {
+    throw new Error("reset not available");
+  }
+  
   // async appIconBadgeNumber(): Promise<{value: number}> {
   //   throw new Error("appIconBadgeNumber not available");
   // }
-
-  async getName(): Promise<{value: string | null}> {
-    throw new Error("appIconBadgeNumber not available");
-  }
-
-  async change(): Promise<any> {
-    throw new Error("setAlternateIconName not available");
-  }
-
 }
 
 const AppIcon = new AppIconWeb();
