@@ -39,10 +39,45 @@ The alternate icons need to be included within the app bundle and referenced in 
 Add the alternate icons directly to your iOS project or in a subdirectory.
 
 
+
 ### Setup Info.plist
+
+Add the `CFBundleIcons` key to `Info.plist` with `CFBundleAlternateIcons` dictionary. Each alternate icon needs to be specified.
+
+From Apple:
+> When specifying icon filenames, it is best to omit any filename extensions. Omitting the filename extension lets the system automatically detect high-resolution (@2x) versions of your image files using the standard-resolution image filename. If you include filename extensions, you must specify all image files (including the high-resolution variants) explicitly. The system looks for the icon files in the main resources directory of the bundle.
+
+
+
+```xml
+<key>CFBundleIcons</key>
+  <dict>
+    <key>CFBundleAlternateIcons</key>
+    <dict>
+      <!-- The names to reference in your code -->
+      <key>ionic-icon</key>
+      <dict>
+        <key>UIPrerenderedIcon</key>
+        <true/>
+        <key>CFBundleIconFiles</key>
+        <array>
+          <!-- Filenames-->
+          <string>ionic-icon</string>
+        </array>
+      </dict>
+      <!-- ... additional alternates if any ... -->
+    </dict>
+</dict>
+```
 
 ## Usage
 
 > This plugin only changes the main app icon on the device homescreen. The icon in springboard and in other areas of iOS will not change and continue to show the original app icon.
 
-TODO
+```javascript
+
+```
+
+## API
+
+
