@@ -38,35 +38,44 @@ The alternate icons need to be included within the app bundle and referenced in 
 
 Add the alternate icons directly to your iOS project or in a subdirectory.
 
-
-
 ### Setup Info.plist
 
 Add the `CFBundleIcons` key to `Info.plist` with `CFBundleAlternateIcons` dictionary. Each alternate icon needs to be specified.
 
+Providing every resolution for each alternative is not required. By including the icon with the highest supported resolution, iOS will handle the other resolutions by scalling down the large one provided.
+
 From Apple:
 > When specifying icon filenames, it is best to omit any filename extensions. Omitting the filename extension lets the system automatically detect high-resolution (@2x) versions of your image files using the standard-resolution image filename. If you include filename extensions, you must specify all image files (including the high-resolution variants) explicitly. The system looks for the icon files in the main resources directory of the bundle.
 
-
-
 ```xml
 <key>CFBundleIcons</key>
+<dict>
+  <key>CFBundleAlternateIcons</key>
   <dict>
-    <key>CFBundleAlternateIcons</key>
+    <!-- The names to reference in your code -->
+    <key>ionic-icon</key>
     <dict>
-      <!-- The names to reference in your code -->
-      <key>ionic-icon</key>
-      <dict>
-        <key>UIPrerenderedIcon</key>
-        <true/>
-        <key>CFBundleIconFiles</key>
-        <array>
-          <!-- Filenames-->
-          <string>ionic-icon</string>
-        </array>
-      </dict>
-      <!-- ... additional alternates if any ... -->
+      <key>UIPrerenderedIcon</key>
+      <true/>
+      <key>CFBundleIconFiles</key>
+      <array>
+        <!-- Filenames-->
+        <string>ionic-icon</string>
+      </array>
     </dict>
+    <!-- ... additional alternates if any ... -->
+  </dict>
+</dict>
+```
+
+### Supporting iPad
+
+For iPad specific version of an icon, there is an additional key to add in Info.plist. 
+
+```xml
+<key>CFBundleIcons~ipad</key>
+<dict>
+  <!-- same as above  -->
 </dict>
 ```
 
@@ -75,9 +84,17 @@ From Apple:
 > This plugin only changes the main app icon on the device homescreen. The icon in springboard and in other areas of iOS will not change and continue to show the original app icon.
 
 ```javascript
+import { Plugins } from '@capacitor/core';
 
+const { AppIcon } = Plugins;
+
+const changeIcon = async (iconName) => {
+
+  await AppIcon.change({name: iconName});
+
+}
 ```
 
 ## API
 
-
+Coming Soon
