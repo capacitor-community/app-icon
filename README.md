@@ -23,6 +23,8 @@
 | -----------| -------| -------|
 | John Borges | [johnborges](https://github.com/johnborges) | [@johnborges](https://twitter.com/johnborges) |
 
+<img src="https://github.com/johnborges/app-icon/blob/main/media/appicon_demo.gif />
+
 ## Before Starting
 
 > This plugin only changes the main app icon on the device homescreen. The icon in springboard and in other areas of iOS will not change and continue to show the original.
