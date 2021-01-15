@@ -1,6 +1,6 @@
 {
   "name": "@capacitor-community/app-icon",
-  "version": "0.0.1",
+  "version": "0.3.0",
   "description": "Capacitor community plugin for changing an iOS app icon.",
   "main": "dist/plugin.js",
   "module": "dist/esm/index.js",

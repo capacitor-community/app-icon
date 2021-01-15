@@ -21,48 +21,51 @@ public class AppIcon: CAPPlugin {
     }
 
     @objc func reset(_ call: CAPPluginCall) {
-        changeIcon(iconName: nil, call)
+        let suppressNotification = call.getBool("suppressNotification") ?? true
+
+        setIcon(iconName: nil, suppressNotification: suppressNotification, call)
     }
 
     @objc func change(_ call: CAPPluginCall) {
-        CAPLog.print("Changing app icon.")
         
         guard let iconName = call.getString("name") else {
             call.reject("Must provide an icon name.")
             return
         }
         
-        DispatchQueue.main.sync {
-            
-            if UIApplication.shared.responds(to: #selector(getter: UIApplication.supportsAlternateIcons)) && UIApplication.shared.supportsAlternateIcons {
-                typealias setAlternateIconName = @convention(c) (NSObject, Selector, NSString?, @escaping (NSError) -> ()) -> ()
-
-                let selectorString = "_setAlternateIconName:completionHandler:"
-
-                let selector = NSSelectorFromString(selectorString)
-                let imp = UIApplication.shared.method(for: selector)
-                let method = unsafeBitCast(imp, to: setAlternateIconName.self)
-                method(UIApplication.shared, selector, iconName as NSString?, { _ in })
-
-                call.resolve();
-            }
-        }
+        let suppressNotification = call.getBool("suppressNotification") ?? true
+        
+        setIcon(iconName: iconName, suppressNotification: suppressNotification, call)
     }
     
-    func changeIcon(iconName: String?, _ call: CAPPluginCall) {
+    func setIcon(iconName: String?, suppressNotification: Bool, _ call: CAPPluginCall) {
         DispatchQueue.main.sync {
             // Check if the app supports alternating icons
             guard UIApplication.shared.supportsAlternateIcons else {
                 return call.reject("Alternate icons not supported.");
             }
+            
+            if(suppressNotification) {
+                if UIApplication.shared.responds(to: #selector(getter: UIApplication.supportsAlternateIcons)) && UIApplication.shared.supportsAlternateIcons {
+                    typealias setAlternateIconName = @convention(c) (NSObject, Selector, NSString?, @escaping (NSError) -> ()) -> ()
+
+                    let selectorString = "_setAlternateIconName:completionHandler:"
+
+                    let selector = NSSelectorFromString(selectorString)
+                    let imp = UIApplication.shared.method(for: selector)
+                    let method = unsafeBitCast(imp, to: setAlternateIconName.self)
+                    method(UIApplication.shared, selector, iconName as NSString?, { _ in })
+
+                    call.resolve();
+               }
                 
-            // Change the icon to a specific image with given name
-            UIApplication.shared.setAlternateIconName(iconName) { (error) in
-                // After app icon changed, print our error or success message
-                if let error = error {
-                    call.reject("App icon failed to due to \(error.localizedDescription)")
-                } else {
-                    call.resolve()
+            } else {
+                UIApplication.shared.setAlternateIconName(iconName) { (error) in
+                    if let error = error {
+                        call.reject("App icon failed to due to \(error.localizedDescription)")
+                    } else {
+                        call.resolve()
+                    }
                 }
             }
         }

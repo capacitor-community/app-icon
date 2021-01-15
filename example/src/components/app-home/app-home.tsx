@@ -11,7 +11,7 @@ export class AppHome {
 
   async resetIcon() {
     try {
-      await AppIcon.reset()
+      await AppIcon.reset({suppressNotification: true})
     } catch (error) {
       console.debug(error)
     }
@@ -27,10 +27,11 @@ export class AppHome {
       let setIconName = await AppIcon.getName();
       console.debug(`App Icon set to: `,setIconName.value);
       
-      await AppIcon.change({name: iconName});
+      await AppIcon.change({name: iconName, suppressNotification: true});
       
       setIconName = await AppIcon.getName();
       console.debug(`App Icon set to: `,setIconName.value);
+      
     } catch (error) {
       console.debug(error)
     }
