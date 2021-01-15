@@ -23,7 +23,7 @@
 | -----------| -------| -------|
 | John Borges | [johnborges](https://github.com/johnborges) | [@johnborges](https://twitter.com/johnborges) |
 
-<img src="https://github.com/johnborges/app-icon/blob/main/media/appicon_demo.gif />
+<img src="https://github.com/johnborges/app-icon/blob/main/media/appicon_demo.gif" />
 
 ## Before Starting
 
