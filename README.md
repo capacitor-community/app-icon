@@ -23,6 +23,12 @@
 | -----------| -------| -------|
 | John Borges | [johnborges](https://github.com/johnborges) | [@johnborges](https://twitter.com/johnborges) |
 
+## General
+
+> This plugin only changes the main app icon on the device homescreen. The icon in springboard and in other areas of iOS will not change and continue to show the original.
+
+> Changing the app icon is only allowed when the app is in the foreground.
+
 ## Installation
 
 ```bash
@@ -81,8 +87,6 @@ For iPad specific version of an icon, there is an additional key to add in Info.
 
 ## Usage
 
-> This plugin only changes the main app icon on the device homescreen. The icon in springboard and in other areas of iOS will not change and continue to show the original app icon.
-
 ```javascript
 import { Plugins } from '@capacitor/core';
 
@@ -97,4 +101,70 @@ const changeIcon = async (iconName) => {
 
 ## API
 
-Coming Soon
+### initialize()
+
+```typescript
+isSupported() => Promise<{value: boolean}>
+```
+
+Checks to see if using alternate icons is supported on your device.
+
+---
+
+### getName()
+
+```typescript
+getName(): Promise<{value: string | null}>;
+```
+
+Gets the name of currently set alternate icon. If original icon is set, returns null.
+
+---
+
+### change(...)
+
+```typescript
+change(options: IconOptions): Promise<void>;
+```
+
+Changes app icon to specified alternate.
+
+| Param         | Type                                                |
+| ------------- | --------------------------------------------------- |
+| **`options`** | <code><a href="#IconOptions">IconOptions</a></code> |
+
+---
+
+### reset(...)
+
+```typescript
+reset(options: ResetOptions): Promise<void>;
+```
+
+Changes app icon to specified alternate.
+
+| Param         | Type                                                |
+| ------------- | --------------------------------------------------- |
+| **`options`** | <code><a href="#IconOptions">ResetOptions</a></code> |
+
+---
+
+### Interfaces
+
+
+#### IconOptions
+
+Represents the options passed to `change`.
+
+| Prop                    | Type                                   | Description                                                                                                                                | Since |
+| ----------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
+| **`name`**               | <code>string</code>                    | Name of alternate icon to set.                                                                                                    | 1.0.0 |
+| **`suppressNotification`**        | <code>boolean</code>                    | Flag controlling the in app notification which shows after icon is changed. | 1.0.0 |                                  | 1.0.0 |
+
+#### ResetOptions
+
+Represents the options passed to `reset`.
+
+| Prop                    | Type                                   | Description                                                                                                                                | Since |
+| ----------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
+| **`suppressNotification`**               | <code>boolean</code>                    | Flag controlling the in app notification which shows after icon is changed.                                                                                                    | 1.0.0 |

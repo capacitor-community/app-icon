@@ -15,6 +15,13 @@ interface IconOptions {
   suppressNotification: boolean
 }
 
+interface ResetOptions {
+  /**
+   * Flag controlling the in app notification which shows after icon is changed.
+   */
+  suppressNotification: boolean
+}
+
 export interface AppIconPlugin {
   /**
    * Checks if changing the app icon is supported
@@ -35,7 +42,7 @@ export interface AppIconPlugin {
    * Reverts app icon to original. 
    * @since 1.0.0
    */
-  reset(options: {suppressNotification: boolean}): Promise<void>;
+  reset(options: ResetOptions): Promise<void>;
   
   // appIconBadgeNumber(): Promise<{value: number}>;
 }
