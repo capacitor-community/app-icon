@@ -23,7 +23,7 @@
 | -----------| -------| -------|
 | John Borges | [johnborges](https://github.com/johnborges) | [@johnborges](https://twitter.com/johnborges) |
 
-## General
+## Before Starting
 
 > This plugin only changes the main app icon on the device homescreen. The icon in springboard and in other areas of iOS will not change and continue to show the original.
 
@@ -94,14 +94,14 @@ const { AppIcon } = Plugins;
 
 const changeIcon = async (iconName) => {
 
-  await AppIcon.change({name: iconName});
+  await AppIcon.change({name: iconName, suppressNotification: true});
 
 }
 ```
 
 ## API
 
-### initialize()
+### isSupported()
 
 ```typescript
 isSupported() => Promise<{value: boolean}>
