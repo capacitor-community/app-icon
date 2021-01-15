@@ -159,7 +159,7 @@ Represents the options passed to `change`.
 | Prop                    | Type                                   | Description                                                                                                                                | Since |
 | ----------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
 | **`name`**               | <code>string</code>                    | Name of alternate icon to set.                                                                                                    | 1.0.0 |
-| **`suppressNotification`**        | <code>boolean</code>                    | Flag controlling the in app notification which shows after icon is changed. | 1.0.0 |                                  | 1.0.0 |
+| **`suppressNotification`**        | <code>boolean</code>                    | Flag controlling the in app notification which shows after icon is changed. | 1.0.0 |                                  
 
 #### ResetOptions
 
