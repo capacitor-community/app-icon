@@ -17,13 +17,13 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
+<p align="center"><img src="https://github.com/johnborges/app-icon/blob/main/media/appicon_demo.gif" width="373px" height="688px" /></p>
+
 ## Maintainers
 
 | Maintainer | GitHub | Social |
 | -----------| -------| -------|
 | John Borges | [johnborges](https://github.com/johnborges) | [@johnborges](https://twitter.com/johnborges) |
-
-<img src="https://github.com/johnborges/app-icon/blob/main/media/appicon_demo.gif" width="373px" height="688px" />
 
 ## Before Starting
 
