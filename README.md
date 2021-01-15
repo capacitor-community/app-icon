@@ -48,6 +48,8 @@ Add the alternate icons directly to your iOS project or in a subdirectory.
 
 Add the `CFBundleIcons` key to `Info.plist` with `CFBundleAlternateIcons` dictionary. Each alternate icon needs to be specified.
 
+<img src="https://github.com/johnborges/app-icon/blob/main/media/xcode_project.png" />
+
 Providing every resolution for each alternative is not required. By including the icon with the highest supported resolution, iOS will handle the other resolutions by scalling down the large one provided.
 
 From Apple:
