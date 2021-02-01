@@ -1,6 +1,6 @@
 {
   "name": "@capacitor-community/app-icon",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Capacitor community plugin for changing an iOS app icon.",
   "main": "dist/plugin.js",
   "module": "dist/esm/index.js",
@@ -58,9 +58,9 @@
   "swiftlint": "@ionic/swiftlint-config",
   "repository": {
     "type": "git",
-    "url": "https://github.com/johnborges/app-icon"
+    "url": "https://github.com/capacitor-community/app-icon"
   },
   "bugs": {
-    "url": "https://github.com/johnborges/app-icon"
+    "url": "https://github.com/capacitor-community/app-icon/issues"
   }
 }
