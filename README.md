@@ -17,7 +17,7 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
-<p align="center"><img src="https://github.com/johnborges/app-icon/blob/main/media/appicon_demo.gif" width="373px" height="688px" /></p>
+<p align="center"><img src="https://github.com/capacitor-community/app-icon/blob/main/media/appicon_demo.gif" width="373px" height="688px" /></p>
 
 ## Maintainers
 
