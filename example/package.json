@@ -19,8 +19,8 @@
     "@stencil/core": "^2.0.1"
   },
   "dependencies": {
-    "@capacitor-community/app-icon": "^0.0.1",
-    "@capacitor/cli": "^2.4.5",
-    "@capacitor/core": "^2.4.5"
+    "@capacitor-community/app-icon": "file:..",
+    "@capacitor/cli": "^3.0.0-rc.0",
+    "@capacitor/core": "^3.0.0-rc.0"
   }
 }
