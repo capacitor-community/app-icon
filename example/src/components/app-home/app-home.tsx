@@ -1,7 +1,5 @@
 import { Component, h } from '@stencil/core';
-import { Plugins } from '@capacitor/core';
-
-const { AppIcon } = Plugins;
+import { AppIcon } from "@capacitor-community/app-icon";
 
 @Component({
   tag: 'app-home',
