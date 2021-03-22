@@ -17,7 +17,7 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
-<p align="center"><img src="https://github.com/johnborges/app-icon/blob/main/media/appicon_demo.gif" width="373px" height="688px" /></p>
+<p align="center"><img src="https://github.com/capacitor-community/app-icon/blob/main/media/appicon_demo.gif" width="373px" height="688px" /></p>
 
 ## Maintainers
 
@@ -92,9 +92,7 @@ For iPad specific version of an icon, there is an additional key to add in Info.
 ## Usage
 
 ```javascript
-import { Plugins } from '@capacitor/core';
-
-const { AppIcon } = Plugins;
+import { AppIcon } from '@capacitor-community/app-icon';
 
 const changeIcon = async (iconName) => {
 
