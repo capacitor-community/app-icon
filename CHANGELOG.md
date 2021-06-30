@@ -4,8 +4,8 @@
 
 ### Bug Fixes
 
-* **web:** fix use of depricated webplugin api ([#8](https://github.com/capacitor-community/app-icon/issues/8)) ()
-* fix security vulnerability in package dependancy ()
+* **web:** fix use of deprecated webplugin api ([#8](https://github.com/capacitor-community/app-icon/issues/8))
+* fix security vulnerability in package dependency
 
 ## [2.0.1](https://github.com/capacitor-community/app-icon/compare/v2.0.0...v2.0.1) (2021-06-04)
 
