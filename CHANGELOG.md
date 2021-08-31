@@ -1,5 +1,11 @@
 # Change Log
 
+## [2.0.4](https://github.com/capacitor-community/app-icon/compare/v2.0.3...v2.0.4) (2021-08-31)
+
+### Minor Changes
+
+* fix security vulnerability in example app
+
 ## [2.0.3](https://github.com/capacitor-community/app-icon/compare/v2.0.2...v2.0.3) (2021-08-24)
 
 ### Minor Changes
