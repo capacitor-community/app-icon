@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "johnborges",
+      "name": "John Borges",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1888122?v=4",
+      "profile": "http://johnborg.es",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "app-icon",
+  "projectOwner": "capacitor-community",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
