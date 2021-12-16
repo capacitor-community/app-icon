@@ -18,6 +18,8 @@
 
 <p align="center"><img src="https://github.com/capacitor-community/app-icon/blob/main/media/appicon_demo.gif" width="373px" height="688px" /></p>
 
+# This branch is for Capacitor 2.x. For Capacitor 3.x, see `https://github.com/capacitor-community/app-icon/tree/master`
+
 ## Maintainers
 
 | Maintainer | GitHub | Social |
@@ -36,6 +38,12 @@
 npm install @capacitor-community/app-icon
 npx cap sync
 ```
+### Capacitor 2.x
+
+For Capacitor 2.x projects, you will need to install a version less than 2.0.0. You can do that by specifying the version in your `package.json` or installing like this.
+
+```bash
+npm i @capacitor-community/app-icon@1.1.0
 
 ## Configuration
 
