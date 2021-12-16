@@ -2,19 +2,33 @@ import { WebPlugin } from '@capacitor/core';
 import { AppIconPlugin } from './definitions';
 
 export class AppIconWeb extends WebPlugin implements AppIconPlugin {
+  constructor() {
+    super({
+      name: 'AppIcon',
+      platforms: ['web'],
+    });
+  }
+
   isSupported(): Promise<{value: boolean}> {
-    throw this.unimplemented('isSupported not available on web');
+    throw new Error('isSupported not available on web');
   }
   
   getName(): Promise<{value: string | null}> {
-    throw this.unimplemented('getName not available on web');
+    throw new Error('getName not available on web');
   }
   
   change(): Promise<any> {
-    throw this.unimplemented('change not available on web');
+    throw new Error('change not available on web');
   }
   
   reset(): Promise<any> {
-    throw this.unimplemented('reset not available on web');
+    throw new Error('reset not available on web');
   }
 }
+
+const AppIcon = new AppIconWeb();
+
+export { AppIcon };
+
+import { registerWebPlugin } from '@capacitor/core';
+registerWebPlugin(AppIcon);

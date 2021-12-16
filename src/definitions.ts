@@ -1,3 +1,9 @@
+declare module '@capacitor/core' {
+  interface PluginRegistry {
+    AppIcon: AppIconPlugin;
+  }
+}
+
 interface IconOptions {
   /**
    * Name of alternate icon to set
