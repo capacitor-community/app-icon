@@ -25,7 +25,7 @@ public class AppIcon {
   
     public void reset() {
         Log.i("APPICON deactivate", activity.getComponentName().getClassName());
-        enableActivity("ch.well.healthapp.dev.MainActivityDefault"); // todo
+        // enableActivity("com.my.app.MainActivityDefault"); // todo
         disableActivity(activity.getComponentName().getClassName());
     }
 
