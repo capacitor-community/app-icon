@@ -59,6 +59,9 @@
   "capacitor": {
     "ios": {
       "src": "ios"
+    },
+    "android": {
+      "src": "android"
     }
   },
   "prettier": "@ionic/prettier-config",
