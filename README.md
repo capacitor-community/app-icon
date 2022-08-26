@@ -6,14 +6,12 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/maintenance/yes/2021?style=flat-square" />
+  <img src="https://img.shields.io/maintenance/yes/2022?style=flat-square" />
   <a href="https://www.npmjs.com/package/@capacitor-community/app-icon"><img src="https://img.shields.io/npm/l/@capacitor-community/app-icon?style=flat-square" /></a>
 <br>
   <a href="https://www.npmjs.com/package/@capacitor-community/app-icon"><img src="https://img.shields.io/npm/dw/@capacitor-community/app-icon?style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/@capacitor-community/app-icon"><img src="https://img.shields.io/npm/v/@capacitor-community/app-icon?style=flat-square" /></a>
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="#contributors-"><img src="https://img.shields.io/badge/all%20contributors-0-orange?style=flat-square" /></a>
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+  <a href="https://www.npmjs.com/package/@capacitor-community/app-icon"><img src="https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square" /></a>
 </p>
 
 <p align="center"><img src="https://github.com/capacitor-community/app-icon/blob/main/media/appicon_demo.gif" width="373px" height="688px" /></p>
@@ -169,3 +167,24 @@ Represents the options passed to `reset`.
 | Prop                    | Type                                   | Description                                                                                                                                | Since |
 | ----------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
 | **`suppressNotification`**               | <code>boolean</code>                    | Flag controlling the in app notification which shows after icon is changed.                                                                                                    | 1.0.0 |
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://johnborg.es"><img src="https://avatars.githubusercontent.com/u/1888122?v=4?s=100" width="100px;" alt=""/><br /><sub><b>John Borges</b></sub></a><br /><a href="https://github.com/capacitor-community/app-icon/commits?author=johnborges" title="Code">💻</a></td>
+    <td align="center"><a href="http://www.devdactic.com"><img src="https://avatars.githubusercontent.com/u/2514208?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Simon Grimm</b></sub></a><br /><a href="https://github.com/capacitor-community/app-icon/commits?author=saimon24" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
