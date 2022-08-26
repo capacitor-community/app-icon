@@ -15,12 +15,12 @@
     "generate": "stencil generate"
   },
   "devDependencies": {
+    "@capacitor/cli": "^4.0.0",
     "@ionic/core": "^5.6.10",
     "@stencil/core": "^2.6.0"
   },
   "dependencies": {
-    "@capacitor-community/app-icon": "^2.0.3",
-    "@capacitor/cli": "^3.0.1",
-    "@capacitor/core": "^3.0.1"
+    "@capacitor-community/app-icon": "file:..",
+    "@capacitor/core": "^4.0.0"
   }
 }
