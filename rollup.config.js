@@ -4,7 +4,7 @@ export default {
     {
       file: 'dist/plugin.js',
       format: 'iife',
-      name: 'capacitorAppCenter',
+      name: 'capacitorAppIcon',
       globals: {
         '@capacitor/core': 'capacitorExports',
       },
