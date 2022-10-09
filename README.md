@@ -2,7 +2,7 @@
 <h3 align="center">App Icon</h3>
 <p align="center"><strong><code>@capacitor-community/app-icon</code></strong></p>
 <p align="center">
-  Capacitor community plugin for managing an iOS app's icon. The main feature being that you can programmatically change the app icon.
+  Capacitor community plugin for managing an app's icon. The main feature being that you can programmatically change the app icon.
 </p>
 
 <p align="center">
@@ -27,6 +27,8 @@
 > This plugin only changes the main app icon on the device homescreen. The icon in springboard and in other areas of iOS will not change and continue to show the original.
 
 > Changing the app icon is only allowed when the app is in the foreground.
+
+> Android support is currently in beta. See the [android-support](https://github.com/capacitor-community/app-icon/tree/android-support) branch for more info.
 
 ## Installation
 
