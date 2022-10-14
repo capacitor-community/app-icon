@@ -14,7 +14,7 @@
   <a href="https://www.npmjs.com/package/@capacitor-community/app-icon"><img src="https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square" /></a>
 </p>
 
-<p align="center"><img src="https://github.com/capacitor-community/app-icon/blob/main/media/appicon_demo.gif" width="278px" height="628px" /> <img src="https://github.com/capacitor-community/app-icon/blob/main/media/appicon_demo_android.gif" width="230px" height="700px" /></p>
+<p align="center"><img src="https://github.com/capacitor-community/app-icon/blob/main/media/appicon_demo.gif" width="278px" height="650px" /> <img src="https://github.com/capacitor-community/app-icon/blob/main/media/appicon_demo_android.gif" width="250px" height="650px" /></p>
 
 ## Maintainers
 
