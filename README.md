@@ -3,6 +3,7 @@
 <p align="center"><strong><code>@capacitor-community/app-icon</code></strong></p>
 <p align="center">
   Capacitor community plugin for managing an app's icon. The main feature being that you can programmatically change the app icon.
+  testing
 </p>
 
 <p align="center">
