@@ -39,7 +39,7 @@ public class AppIconBase {
             if (Objects.equals(name, ".MainActivity")) {
                 return null;
             }
-            return componentName.getShortClassName();
+            return name.substring(1);
         } else {
             // The component is currently disabled
             return null;
