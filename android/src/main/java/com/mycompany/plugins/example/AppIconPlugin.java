@@ -16,7 +16,14 @@ public class AppIconPlugin extends Plugin {
         implementation = new AppIconBase(this.getActivity(), this.getContext());
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod()
+    public void getName(PluginCall call) {
+        JSObject r = new JSObject();
+        r.put("value", implementation.getName());
+        call.resolve(r);
+    }
+
+    @PluginMethod()
     public void change(PluginCall call) {
         if (!call.getData().has("name")) {
             call.reject("Must provide an icon name");
@@ -27,7 +34,19 @@ public class AppIconPlugin extends Plugin {
             return;
         }
 
-        implementation.changeIcon(call.getString("name", null), call.getArray("disable", null));
+        implementation.change(call.getString("name", null), call.getArray("disable", null));
         call.resolve();
     }
+
+    @PluginMethod()
+    public void reset(PluginCall call) {
+        if (!call.getData().has("disable")) {
+            call.reject("Must provide an array of icon names to disable");
+            return;
+        }
+
+        implementation.reset(call.getArray("disable", null));
+        call.resolve();
+    }
+
 }

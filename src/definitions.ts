@@ -18,7 +18,13 @@ export interface ResetOptions {
   /**
    * Flag controlling the in app notification which shows after icon is changed (iOS).
    */
-  suppressNotification: boolean
+  suppressNotification: boolean;
+
+  /**
+   * Name of icons to disable. This is not used for iOS, but required for Android.
+   * @since 3.1.1
+   */
+  disable?: string[];
 }
 
 export interface AppIconPlugin {
