@@ -142,9 +142,17 @@ For iPad specific version of an icon, there is an additional key to add in Info.
 import { AppIcon } from '@capacitor-community/app-icon';
 
 const changeIcon = async (iconName) => {
-
   await AppIcon.change({name: iconName, suppressNotification: true});
+}
 
+const getName = async () => {
+  const { value } = await AppIcon.getName();
+  console.log(value);
+}
+
+const resetIcon = async () => {
+  const disable: string[] = ['stencil']; // all added aliaces names 
+  await AppIcon.reset({ suppressNotification: true, disable });
 }
 ```
 
