@@ -62,6 +62,12 @@ public class AppIconBase {
                         PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP
                 );
             }
+
+            // Always disable main app icon
+            pm.setComponentEnabledSetting(
+                    new ComponentName(this.packageName, this.packageName + ".MainActivity"),
+                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP
+            );
         } catch (JSONException ignore) {
             // do nothing
         }
