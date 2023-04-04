@@ -1,5 +1,6 @@
 import { WebPlugin } from '@capacitor/core';
-import { AppIconPlugin } from './definitions';
+
+import type { AppIconPlugin } from './definitions';
 
 export class AppIconWeb extends WebPlugin implements AppIconPlugin {
   isSupported(): Promise<{value: boolean}> {

@@ -1,4 +1,4 @@
-import { Config } from '@stencil/core';
+import type { Config } from '@stencil/core';
 
 // https://stenciljs.com/docs/config
 
