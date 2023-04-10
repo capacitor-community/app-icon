@@ -17,6 +17,13 @@ public class AppIconPlugin extends Plugin {
     }
 
     @PluginMethod()
+    public void isSupported(PluginCall call) {
+        JSObject r = new JSObject();
+        r.put("value", implementation.isSupported());
+        call.resolve(r);
+    }
+
+    @PluginMethod()
     public void getName(PluginCall call) {
         JSObject r = new JSObject();
         r.put("value", implementation.getName());
