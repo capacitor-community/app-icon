@@ -11,18 +11,18 @@ env:
   JAVA_VERSION: 17
 
 jobs:
-  lint:
-    # name: Lint
-    # runs-on: macos-latest
-    # steps:
-    #   - name: Checkout
-    #     uses: actions/checkout@v3
-    #   - name: Set up Node.js ${{ env.NODE_VERSION }}
-    #     uses: actions/setup-node@v3
-    #     with:
-    #       node-version: ${{ env.NODE_VERSION }}
-    #   - run: npm i
-    #   - run: npm run lint      
+  # lint:
+  #   name: Lint
+  #   runs-on: macos-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #     - name: Set up Node.js ${{ env.NODE_VERSION }}
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: ${{ env.NODE_VERSION }}
+  #     - run: npm i
+  #     - run: npm run lint      
   verify-android:
     name: Verify Android
     runs-on: ubuntu-latest
