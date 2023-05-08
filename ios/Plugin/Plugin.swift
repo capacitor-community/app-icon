@@ -57,7 +57,7 @@ public class AppIcon: CAPPlugin {
                     method(UIApplication.shared, selector, iconName as NSString?, { _ in })
 
                     call.resolve()
-               }
+                }
 
             } else {
                 UIApplication.shared.setAlternateIconName(iconName) { (error) in
