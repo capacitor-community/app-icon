@@ -7,7 +7,7 @@ public class AppIcon: CAPPlugin {
     @objc func isSupported(_ call: CAPPluginCall) {
         DispatchQueue.main.sync {
             call.resolve([
-                "value": UIApplication.shared.supportsAlternateIcons,
+                "value": UIApplication.shared.supportsAlternateIcons
             ])
         }
     }
@@ -27,27 +27,27 @@ public class AppIcon: CAPPlugin {
     }
 
     @objc func change(_ call: CAPPluginCall) {
-        
+
         guard let iconName = call.getString("name") else {
             call.reject("Must provide an icon name.")
             return
         }
-        
+
         let suppressNotification = call.getBool("suppressNotification") ?? true
-        
+
         setIcon(iconName: iconName, suppressNotification: suppressNotification, call)
     }
-    
+
     func setIcon(iconName: String?, suppressNotification: Bool, _ call: CAPPluginCall) {
         DispatchQueue.main.sync {
             // Check if the app supports alternating icons
             guard UIApplication.shared.supportsAlternateIcons else {
                 return call.reject("Alternate icons not supported.")
             }
-            
-            if(suppressNotification) {
+
+            if suppressNotification {
                 if UIApplication.shared.responds(to: #selector(getter: UIApplication.supportsAlternateIcons)) && UIApplication.shared.supportsAlternateIcons {
-                    typealias setAlternateIconName = @convention(c) (NSObject, Selector, NSString?, @escaping (NSError) -> ()) -> ()
+                    typealias setAlternateIconName = @convention(c) (NSObject, Selector, NSString?, @escaping (NSError) -> Void) -> Void
 
                     let selectorString = "_setAlternateIconName:completionHandler:"
 
@@ -58,7 +58,7 @@ public class AppIcon: CAPPlugin {
 
                     call.resolve()
                }
-                
+
             } else {
                 UIApplication.shared.setAlternateIconName(iconName) { (error) in
                     if let error = error {
