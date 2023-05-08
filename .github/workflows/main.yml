@@ -24,6 +24,7 @@ jobs:
   #     - run: npm i
   #     - run: npm run lint      
   verify-android:
+    if: github.ref == 'refs/heads/android-support'
     name: Verify Android
     runs-on: ubuntu-latest
     # needs: lint
