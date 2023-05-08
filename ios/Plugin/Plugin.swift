@@ -8,7 +8,7 @@ public class AppIcon: CAPPlugin {
         DispatchQueue.main.sync {
             call.resolve([
                 "value": UIApplication.shared.supportsAlternateIcons,
-            ]);
+            ])
         }
     }
 
@@ -16,7 +16,7 @@ public class AppIcon: CAPPlugin {
         DispatchQueue.main.sync {
             call.resolve([
                 "value": UIApplication.shared.alternateIconName
-            ]);
+            ])
         }
     }
 
@@ -42,7 +42,7 @@ public class AppIcon: CAPPlugin {
         DispatchQueue.main.sync {
             // Check if the app supports alternating icons
             guard UIApplication.shared.supportsAlternateIcons else {
-                return call.reject("Alternate icons not supported.");
+                return call.reject("Alternate icons not supported.")
             }
             
             if(suppressNotification) {
@@ -56,7 +56,7 @@ public class AppIcon: CAPPlugin {
                     let method = unsafeBitCast(imp, to: setAlternateIconName.self)
                     method(UIApplication.shared, selector, iconName as NSString?, { _ in })
 
-                    call.resolve();
+                    call.resolve()
                }
                 
             } else {
