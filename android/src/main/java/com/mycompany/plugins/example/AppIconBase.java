@@ -30,6 +30,10 @@ public class AppIconBase {
         activeIconName = "";
     }
 
+    public Boolean isSupported() {
+        return true;
+    }
+
     public String getName() {
         ComponentName componentName = new ComponentName(this.activity, this.activity.getClass());
         int status = pm.getComponentEnabledSetting(componentName);

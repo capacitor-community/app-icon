@@ -142,81 +142,119 @@ For iPad specific version of an icon, there is an additional key to add in Info.
 import { AppIcon } from '@capacitor-community/app-icon';
 
 const changeIcon = async (iconName) => {
-
   await AppIcon.change({name: iconName, suppressNotification: true});
+}
 
+const getName = async () => {
+  const { value } = await AppIcon.getName();
+  console.log(value);
+}
+
+const resetIcon = async () => {
+  const disable: string[] = ['stencil']; // all added aliaces names 
+  await AppIcon.reset({ suppressNotification: true, disable });
 }
 ```
 
 ## API
 
+<docgen-index>
+
+* [`isSupported()`](#issupported)
+* [`getName()`](#getname)
+* [`change(...)`](#change)
+* [`reset(...)`](#reset)
+* [Interfaces](#interfaces)
+
+</docgen-index>
+
+<docgen-api>
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
 ### isSupported()
 
 ```typescript
-isSupported() => Promise<{value: boolean}>
+isSupported() => Promise<{ value: boolean; }>
 ```
 
-Checks to see if using alternate icons is supported on your device.
+Checks if changing the app icon is supported. (iOS only)
 
----
+**Returns:** <code>Promise&lt;{ value: boolean; }&gt;</code>
+
+**Since:** 1.0.0
+
+--------------------
+
 
 ### getName()
 
 ```typescript
-getName(): Promise<{value: string | null}>;
+getName() => Promise<{ value: string | null; }>
 ```
 
 Gets the name of currently set alternate icon. If original icon is set, returns null.
 
----
+**Returns:** <code>Promise&lt;{ value: string | null; }&gt;</code>
+
+**Since:** 1.0.0
+
+--------------------
+
 
 ### change(...)
 
 ```typescript
-change(options: IconOptions): Promise<void>;
+change(options: IconOptions) => Promise<void>
 ```
 
 Changes app icon to specified alternate.
 
 | Param         | Type                                                |
 | ------------- | --------------------------------------------------- |
-| **`options`** | <code><a href="#IconOptions">IconOptions</a></code> |
+| **`options`** | <code><a href="#iconoptions">IconOptions</a></code> |
 
----
+**Since:** 1.0.0
+
+--------------------
+
 
 ### reset(...)
 
 ```typescript
-reset(options: ResetOptions): Promise<void>;
+reset(options: ResetOptions) => Promise<void>
 ```
 
-Changes app icon to specified alternate.
+Reverts app icon to original.
 
-| Param         | Type                                                |
-| ------------- | --------------------------------------------------- |
-| **`options`** | <code><a href="#IconOptions">ResetOptions</a></code> |
+| Param         | Type                                                  |
+| ------------- | ----------------------------------------------------- |
+| **`options`** | <code><a href="#resetoptions">ResetOptions</a></code> |
 
----
+**Since:** 1.0.0
+
+--------------------
+
 
 ### Interfaces
 
 
 #### IconOptions
 
-Represents the options passed to `change`.
+| Prop                       | Type                  | Description                                                                       | Since |
+| -------------------------- | --------------------- | --------------------------------------------------------------------------------- | ----- |
+| **`name`**                 | <code>string</code>   | Name of alternate icon to set                                                     |       |
+| **`disable`**              | <code>string[]</code> | Name of icons to disable. This is not used for iOS, but required for Android.     | 3.1.0 |
+| **`suppressNotification`** | <code>boolean</code>  | Flag controlling the in app notification which shows after icon is changed. (iOS) |       |
 
-| Prop                    | Type                                   | Description                                                                                                                                | Since |
-| ----------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
-| **`name`**               | <code>string</code>                    | Name of alternate icon to set.                                                                                                    | 1.0.0 |
-| **`suppressNotification`**        | <code>boolean</code>                    | Flag controlling the in app notification which shows after icon is changed. | 1.0.0 |                                  
 
 #### ResetOptions
 
-Represents the options passed to `reset`.
+| Prop                       | Type                  | Description                                                                       | Since |
+| -------------------------- | --------------------- | --------------------------------------------------------------------------------- | ----- |
+| **`suppressNotification`** | <code>boolean</code>  | Flag controlling the in app notification which shows after icon is changed (iOS). |       |
+| **`disable`**              | <code>string[]</code> | Name of icons to disable. This is not used for iOS, but required for Android.     | 3.1.1 |
 
-| Prop                    | Type                                   | Description                                                                                                                                | Since |
-| ----------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
-| **`suppressNotification`**               | <code>boolean</code>                    | Flag controlling the in app notification which shows after icon is changed.                                                                                                    | 1.0.0 |
+</docgen-api>
 
 ## Contributors ✨
 
