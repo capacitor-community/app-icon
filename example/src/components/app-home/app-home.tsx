@@ -1,37 +1,35 @@
 import { Component, h } from '@stencil/core';
-import { AppIcon } from "@capacitor-community/app-icon";
+import { AppIcon } from '@capacitor-community/app-icon';
 
 @Component({
   tag: 'app-home',
   styleUrl: 'app-home.css',
 })
 export class AppHome {
-
   async resetIcon() {
     try {
-      await AppIcon.reset({suppressNotification: true})
+      await AppIcon.reset({ suppressNotification: true });
     } catch (error) {
-      console.debug(error)
+      console.debug(error);
     }
   }
 
   async changeIcon(iconName: string) {
-    console.debug('ion-item clicked')
+    console.debug('ion-item clicked');
 
     try {
       const isSupported = await AppIcon.isSupported();
-      console.debug(`Alternate Icons Supported: `,isSupported.value);
-  
+      console.debug(`Alternate Icons Supported: `, isSupported.value);
+
       let setIconName = await AppIcon.getName();
-      console.debug(`App Icon set to: `,setIconName.value);
-      
-      await AppIcon.change({name: iconName, suppressNotification: true});
-      
+      console.debug(`App Icon set to: `, setIconName.value);
+
+      await AppIcon.change({ name: iconName, suppressNotification: true });
+
       setIconName = await AppIcon.getName();
-      console.debug(`App Icon set to: `,setIconName.value);
-      
+      console.debug(`App Icon set to: `, setIconName.value);
     } catch (error) {
-      console.debug(error)
+      console.debug(error);
     }
   }
 
@@ -44,12 +42,9 @@ export class AppHome {
       </ion-header>,
 
       <ion-content>
-
         <ion-list id="data">
           <ion-list-header>
-            <ion-label>
-              Alternate Icons
-            </ion-label>
+            <ion-label>Alternate Icons</ion-label>
           </ion-list-header>
           <ion-item button onClick={() => this.changeIcon('ionic-icon')}>
             <ion-thumbnail slot="start">
@@ -77,8 +72,9 @@ export class AppHome {
           </ion-item>
         </ion-list>
 
-        <ion-button class="ion-margin" onClick={() => this.resetIcon()} expand="block">Reset to Original</ion-button>
-      
+        <ion-button class="ion-margin" onClick={() => this.resetIcon()} expand="block">
+          Reset to Original
+        </ion-button>
       </ion-content>,
     ];
   }
