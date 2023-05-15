@@ -1,24 +1,23 @@
 import { Component, h } from '@stencil/core';
-import { AppIcon } from "@capacitor-community/app-icon";
+import { AppIcon } from '@capacitor-community/app-icon';
 
 @Component({
   tag: 'app-home',
   styleUrl: 'app-home.css',
 })
 export class AppHome {
-
   iconNames: string[] = ['ionic', 'stencil', 'ionitron']
 
   async resetIcon() {
     try {
-      await AppIcon.reset({suppressNotification: true})
+      await AppIcon.reset({ suppressNotification: true });
     } catch (error) {
-      console.debug(error)
+      console.debug(error);
     }
   }
 
   async changeIcon(iconName: string) {
-    console.debug('ion-item clicked')
+    console.debug('ion-item clicked');
 
     var disableIcons = this.iconNames.filter(name => name !== iconName)
 
@@ -33,9 +32,9 @@ export class AppHome {
       
       // setIconName = await AppIcon.getName();
       // console.debug(`App Icon set to: `,setIconName.value);
-      
+
     } catch (error) {
-      console.debug(error)
+      console.debug(error);
     }
   }
 
@@ -48,12 +47,9 @@ export class AppHome {
       </ion-header>,
 
       <ion-content>
-
         <ion-list id="data">
           <ion-list-header>
-            <ion-label>
-              Alternate Icons
-            </ion-label>
+            <ion-label>Alternate Icons</ion-label>
           </ion-list-header>
           <ion-item button onClick={() => this.changeIcon('ionic')}>
             <ion-thumbnail slot="start">
@@ -81,8 +77,9 @@ export class AppHome {
           </ion-item>
         </ion-list>
 
-        <ion-button class="ion-margin" onClick={() => this.resetIcon()} expand="block">Reset to Original</ion-button>
-      
+        <ion-button class="ion-margin" onClick={() => this.resetIcon()} expand="block">
+          Reset to Original
+        </ion-button>
       </ion-content>,
     ];
   }

@@ -18,8 +18,8 @@
 
 ## Maintainers
 
-| Maintainer | GitHub | Social |
-| -----------| -------| -------|
+| Maintainer  | GitHub                                      | Social                                        |
+| ----------- | ------------------------------------------- | --------------------------------------------- |
 | John Borges | [johnborges](https://github.com/johnborges) | [@johnborges](https://twitter.com/johnborges) |
 
 ## Before Starting
@@ -102,6 +102,7 @@ Add the `CFBundleIcons` key to `Info.plist` with `CFBundleAlternateIcons` dictio
 Providing every resolution for each alternative is not required. By including the icon with the highest supported resolution, iOS will handle the other resolutions by scalling down the large one provided.
 
 From Apple:
+
 > When specifying icon filenames, it is best to omit any filename extensions. Omitting the filename extension lets the system automatically detect high-resolution (@2x) versions of your image files using the standard-resolution image filename. If you include filename extensions, you must specify all image files (including the high-resolution variants) explicitly. The system looks for the icon files in the main resources directory of the bundle.
 
 ```xml
@@ -127,7 +128,7 @@ From Apple:
 
 ### Supporting iPad
 
-For iPad specific version of an icon, there is an additional key to add in Info.plist. 
+For iPad specific version of an icon, there is an additional key to add in Info.plist.
 
 ```xml
 <key>CFBundleIcons~ipad</key>
@@ -154,6 +155,7 @@ const resetIcon = async () => {
   const disable: string[] = ['stencil']; // all added aliaces names 
   await AppIcon.reset({ suppressNotification: true, disable });
 }
+
 ```
 
 ## API
@@ -237,7 +239,6 @@ Reverts app icon to original.
 
 ### Interfaces
 
-
 #### IconOptions
 
 | Prop                       | Type                  | Description                                                                       | Since |
@@ -246,6 +247,10 @@ Reverts app icon to original.
 | **`disable`**              | <code>string[]</code> | Name of icons to disable. This is not used for iOS, but required for Android.     | 3.1.0 |
 | **`suppressNotification`** | <code>boolean</code>  | Flag controlling the in app notification which shows after icon is changed. (iOS) |       |
 
+| Prop                       | Type                 | Description                                                                 | Since |
+| -------------------------- | -------------------- | --------------------------------------------------------------------------- | ----- |
+| **`name`**                 | <code>string</code>  | Name of alternate icon to set.                                              | 1.0.0 |
+| **`suppressNotification`** | <code>boolean</code> | Flag controlling the in app notification which shows after icon is changed. | 1.0.0 |
 
 #### ResetOptions
 
@@ -253,8 +258,6 @@ Reverts app icon to original.
 | -------------------------- | --------------------- | --------------------------------------------------------------------------------- | ----- |
 | **`suppressNotification`** | <code>boolean</code>  | Flag controlling the in app notification which shows after icon is changed (iOS). |       |
 | **`disable`**              | <code>string[]</code> | Name of icons to disable. This is not used for iOS, but required for Android.     | 3.1.1 |
-
-</docgen-api>
 
 ## Contributors ✨
 
@@ -266,14 +269,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tbody>
     <tr>
-      <td align="center"><a href="http://johnborg.es"><img src="https://avatars.githubusercontent.com/u/1888122?v=4?s=100" width="100px;" alt="John Borges"/><br /><sub><b>John Borges</b></sub></a><br /><a href="https://github.com/capacitor-community/app-icon/commits?author=johnborges" title="Code">💻</a></td>
-      <td align="center"><a href="http://www.devdactic.com"><img src="https://avatars.githubusercontent.com/u/2514208?v=4?s=100" width="100px;" alt="Simon Grimm"/><br /><sub><b>Simon Grimm</b></sub></a><br /><a href="https://github.com/capacitor-community/app-icon/commits?author=saimon24" title="Code">💻</a></td>
-      <td align="center"><a href="https://github.com/chvonrohr"><img src="https://avatars.githubusercontent.com/u/1733057?v=4?s=100" width="100px;" alt="Christian von Rohr"/><br /><sub><b>Christian von Rohr</b></sub></a><br /><a href="https://github.com/capacitor-community/app-icon/commits?author=chvonrohr" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://johnborg.es"><img src="https://avatars.githubusercontent.com/u/1888122?v=4?s=100" width="100px;" alt="John Borges"/><br /><sub><b>John Borges</b></sub></a><br /><a href="https://github.com/capacitor-community/app-icon/commits?author=johnborges" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://www.devdactic.com"><img src="https://avatars.githubusercontent.com/u/2514208?v=4?s=100" width="100px;" alt="Simon Grimm"/><br /><sub><b>Simon Grimm</b></sub></a><br /><a href="https://github.com/capacitor-community/app-icon/commits?author=saimon24" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/chvonrohr"><img src="https://avatars.githubusercontent.com/u/1733057?v=4?s=100" width="100px;" alt="Christian von Rohr"/><br /><sub><b>Christian von Rohr</b></sub></a><br /><a href="https://github.com/capacitor-community/app-icon/commits?author=chvonrohr" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://qliq.dev"><img src="https://avatars.githubusercontent.com/u/5783161?v=4?s=100" width="100px;" alt="QliQ.dev"/><br /><sub><b>QliQ.dev</b></sub></a><br /><a href="https://github.com/capacitor-community/app-icon/commits?author=qliqdev" title="Code">💻</a></td>
     </tr>
   </tbody>
-  <tfoot>
-    
-  </tfoot>
 </table>
 
 <!-- markdownlint-restore -->

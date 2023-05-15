@@ -7,16 +7,16 @@ For more info check out our [homepage](https://ionicframework.com/pwa/toolkit)!
 
 ## Features
 
-* `@ionic/core` for the UI.
-* Stencil for the application logic and routing
-* Push Notifications setup
-* Unit Tests
-* Pre-rendering
-* Lazy-loading and code splitting
-* Intelligent Polyfills
-* Modern mode: ES6/ESM for new browser, ES5 for older
-* Service Worker, App manifest, iOS meta tags
-* Theming using CSS variables
+- `@ionic/core` for the UI.
+- Stencil for the application logic and routing
+- Push Notifications setup
+- Unit Tests
+- Pre-rendering
+- Lazy-loading and code splitting
+- Intelligent Polyfills
+- Modern mode: ES6/ESM for new browser, ES5 for older
+- Service Worker, App manifest, iOS meta tags
+- Theming using CSS variables
 
 ## Getting Started
 
@@ -25,7 +25,6 @@ To start building, clone this repo to a new directory:
 ```bash
 npm init stencil ionic-pwa
 ```
-
 
 ## Production
 
@@ -37,9 +36,9 @@ npm run build
 
 A production build includes:
 
-* Minified code bundles
-* Generated Service workers
-* App manifest
+- Minified code bundles
+- Generated Service workers
+- App manifest
 
 ## Hosting
 
@@ -52,12 +51,12 @@ We recommend setting up HTTP2 Push on Firebase. H2 Push may sound complicated, b
 
 To set this up for `my-app`:
 
-* Do a production build of the app: `npm run build`
-* Serve your WWW folder locally using a local http server and open in your browser.
-  * https://www.npmjs.com/package/http-server works pretty well for this. You can serve your www folder by running `http-server www`.
-* Open the DevTools and look at the network tab.
-  * Reload the page and you should see all of your files show up in the network tab. Excluding the `sw.js` file, these are the files you want to H2 push.
-* List these files in the link headers of your firebase.json file. For a syntax reference, review this [article](https://w3c.github.io/preload/#server-push-http-2)
+- Do a production build of the app: `npm run build`
+- Serve your WWW folder locally using a local http server and open in your browser.
+  - https://www.npmjs.com/package/http-server works pretty well for this. You can serve your www folder by running `http-server www`.
+- Open the DevTools and look at the network tab.
+  - Reload the page and you should see all of your files show up in the network tab. Excluding the `sw.js` file, these are the files you want to H2 push.
+- List these files in the link headers of your firebase.json file. For a syntax reference, review this [article](https://w3c.github.io/preload/#server-push-http-2)
 
 ## Service Workers
 
