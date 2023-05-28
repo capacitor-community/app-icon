@@ -1,24 +1,35 @@
-interface IconOptions {
+export interface IconOptions {
   /**
    * Name of alternate icon to set
    */
   name: string;
   /**
-   * Flag controlling the in app notification which shows after icon is changed.
+   * Name of icons to disable. This is not used for iOS, but required for Android.
+   * @since 3.1.0
+   */
+  disable?: string[];
+  /**
+   * Flag controlling the in app notification which shows after icon is changed. (iOS)
    */
   suppressNotification: boolean;
 }
 
-interface ResetOptions {
+export interface ResetOptions {
   /**
-   * Flag controlling the in app notification which shows after icon is changed.
+   * Flag controlling the in app notification which shows after icon is changed (iOS).
    */
   suppressNotification: boolean;
+
+  /**
+   * Name of icons to disable. This is not used for iOS, but required for Android.
+   * @since 3.1.1
+   */
+  disable?: string[];
 }
 
 export interface AppIconPlugin {
   /**
-   * Checks if changing the app icon is supported
+   * Checks if changing the app icon is supported. (iOS only)
    * @since 1.0.0
    */
   isSupported(): Promise<{ value: boolean }>;

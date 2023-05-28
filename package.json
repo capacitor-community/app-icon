@@ -1,12 +1,14 @@
 {
   "name": "@capacitor-community/app-icon",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "Capacitor community plugin for changing an iOS app icon.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "unpkg": "dist/plugin.js",
   "files": [
+    "android/src/main/",
+    "android/build.gradle",
     "dist/",
     "ios/Plugin/",
     "CapacitorCommunityAppIcon.podspec"
@@ -53,7 +55,8 @@
     "capacitor",
     "plugin",
     "native",
-    "icon"
+    "icon",
+    "appicon"
   ],
   "eslintConfig": {
     "extends": "@ionic/eslint-config/recommended"
@@ -61,6 +64,9 @@
   "capacitor": {
     "ios": {
       "src": "ios"
+    },
+    "android": {
+      "src": "android"
     }
   },
   "repository": {

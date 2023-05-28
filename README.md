@@ -24,9 +24,9 @@
 
 ## Before Starting
 
-> This plugin only changes the main app icon on the device homescreen. The icon in springboard and in other areas of iOS will not change and continue to show the original.
+> This plugin only changes the main app icon on the device homescreen. The icon in springboard and in other areas will not change and continue to show the original. (iOS)
 
-> Changing the app icon is only allowed when the app is in the foreground.
+> Changing the app icon is only allowed when the app is in the foreground (iOS).
 
 > Android support is currently in beta. See the [android-support](https://github.com/capacitor-community/app-icon/tree/android-support) branch for more info.
 
@@ -39,9 +39,57 @@ npx cap sync
 
 ## Configuration
 
+The alternate icons need to be included within the app bundle and referenced in the project prior to using this plugin. It is not possible to switch to any icon on the fly without adding it to the project first. Below are the configurations steps for each platform.
+
+## Android Configuration
+
 ### Add Alternate Icons
 
-The alternate icons need to be included within the app bundle and referenced in the iOS project `Info.plist` prior to using this plugin. It is not possible to switch to any icon on the fly without adding it to the iOS project first.
+Add the alternate icons directly to your android project in `app/src/main/res`.
+
+### Setup ApplicationManifest.xml
+
+Each alternate icon is represented by an [`<activity-alias>`](https://developer.android.com/guide/topics/manifest/activity-alias-element). Add all the alternative icons to the `ApplicationManifest.xml` as child elements under `<application>`. The `name` attribute on `<activity-alias>` must be prefixed with dot `.` See [ApplicationManifest.xml](https://github.com/capacitor-community/app-icon/blob/android-support/example/android/app/src/main/AndroidManifest.xml) for full example.
+
+```xml
+<application>
+    <!-- ... -->
+    <activity
+        android:name=".MainActivity"
+        android:exported="true"
+        android:launchMode="singleTask"
+        android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+        android:label="@string/title_activity_main"
+        android:theme="@style/AppTheme.NoActionBarLaunch">
+
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        </intent-filter>
+
+    </activity>
+    <activity-alias
+        android:label="Stencil"
+        android:icon="@drawable/stencil"
+        android:roundIcon="@drawable/stencil"
+        android:name=".stencil"
+        android:enabled="true"
+        android:exported="true"
+        android:targetActivity=".MainActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity-alias>
+  
+  <!-- additional <activity-alias> -->
+
+<application>
+```
+
+## iOS Configuration
+
+### Add Alternate Icons
 
 Add the alternate icons directly to your iOS project or in a subdirectory.
 
@@ -94,79 +142,119 @@ For iPad specific version of an icon, there is an additional key to add in Info.
 ```javascript
 import { AppIcon } from '@capacitor-community/app-icon';
 
-const changeIcon = async iconName => {
-  await AppIcon.change({ name: iconName, suppressNotification: true });
-};
+const changeIcon = async (iconName) => {
+  await AppIcon.change({name: iconName, suppressNotification: true});
+}
+
+const getName = async () => {
+  const { value } = await AppIcon.getName();
+  console.log(value);
+}
+
+const resetIcon = async () => {
+  const disable: string[] = ['stencil']; // all added aliaces names 
+  await AppIcon.reset({ suppressNotification: true, disable });
+}
 ```
 
 ## API
 
+<docgen-index>
+
+* [`isSupported()`](#issupported)
+* [`getName()`](#getname)
+* [`change(...)`](#change)
+* [`reset(...)`](#reset)
+* [Interfaces](#interfaces)
+
+</docgen-index>
+
+<docgen-api>
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
 ### isSupported()
 
 ```typescript
-isSupported() => Promise<{value: boolean}>
+isSupported() => Promise<{ value: boolean; }>
 ```
 
-Checks to see if using alternate icons is supported on your device.
+Checks if changing the app icon is supported. (iOS only)
 
----
+**Returns:** <code>Promise&lt;{ value: boolean; }&gt;</code>
+
+**Since:** 1.0.0
+
+--------------------
+
 
 ### getName()
 
 ```typescript
-getName(): Promise<{value: string | null}>;
+getName() => Promise<{ value: string | null; }>
 ```
 
 Gets the name of currently set alternate icon. If original icon is set, returns null.
 
----
+**Returns:** <code>Promise&lt;{ value: string | null; }&gt;</code>
+
+**Since:** 1.0.0
+
+--------------------
+
 
 ### change(...)
 
 ```typescript
-change(options: IconOptions): Promise<void>;
+change(options: IconOptions) => Promise<void>
 ```
 
 Changes app icon to specified alternate.
 
 | Param         | Type                                                |
 | ------------- | --------------------------------------------------- |
-| **`options`** | <code><a href="#IconOptions">IconOptions</a></code> |
+| **`options`** | <code><a href="#iconoptions">IconOptions</a></code> |
 
----
+**Since:** 1.0.0
+
+--------------------
+
 
 ### reset(...)
 
 ```typescript
-reset(options: ResetOptions): Promise<void>;
+reset(options: ResetOptions) => Promise<void>
 ```
 
-Changes app icon to specified alternate.
+Reverts app icon to original.
 
-| Param         | Type                                                 |
-| ------------- | ---------------------------------------------------- |
-| **`options`** | <code><a href="#IconOptions">ResetOptions</a></code> |
+| Param         | Type                                                  |
+| ------------- | ----------------------------------------------------- |
+| **`options`** | <code><a href="#resetoptions">ResetOptions</a></code> |
 
----
+**Since:** 1.0.0
+
+--------------------
+
 
 ### Interfaces
 
 #### IconOptions
 
-Represents the options passed to `change`.
+| Prop                       | Type                  | Description                                                                       | Since |
+| -------------------------- | --------------------- | --------------------------------------------------------------------------------- | ----- |
+| **`name`**                 | <code>string</code>   | Name of alternate icon to set                                                     |       |
+| **`disable`**              | <code>string[]</code> | Name of icons to disable. This is not used for iOS, but required for Android.     | 3.1.0 |
+| **`suppressNotification`** | <code>boolean</code>  | Flag controlling the in app notification which shows after icon is changed. (iOS) |       |
 
-| Prop                       | Type                 | Description                                                                 | Since |
-| -------------------------- | -------------------- | --------------------------------------------------------------------------- | ----- |
-| **`name`**                 | <code>string</code>  | Name of alternate icon to set.                                              | 1.0.0 |
-| **`suppressNotification`** | <code>boolean</code> | Flag controlling the in app notification which shows after icon is changed. | 1.0.0 |
 
 #### ResetOptions
 
-Represents the options passed to `reset`.
+| Prop                       | Type                  | Description                                                                       | Since |
+| -------------------------- | --------------------- | --------------------------------------------------------------------------------- | ----- |
+| **`suppressNotification`** | <code>boolean</code>  | Flag controlling the in app notification which shows after icon is changed (iOS). |       |
+| **`disable`**              | <code>string[]</code> | Name of icons to disable. This is not used for iOS, but required for Android.     | 3.1.1 |
 
-| Prop                       | Type                 | Description                                                                 | Since |
-| -------------------------- | -------------------- | --------------------------------------------------------------------------- | ----- |
-| **`suppressNotification`** | <code>boolean</code> | Flag controlling the in app notification which shows after icon is changed. | 1.0.0 |
+</docgen-api>
 
 ## Contributors ✨
 

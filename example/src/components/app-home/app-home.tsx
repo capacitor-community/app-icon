@@ -6,6 +6,9 @@ import { AppIcon } from '@capacitor-community/app-icon';
   styleUrl: 'app-home.css',
 })
 export class AppHome {
+
+  iconNames: string[] = ['ionic', 'stencil', 'ionitron']
+
   async resetIcon() {
     try {
       await AppIcon.reset({ suppressNotification: true });
@@ -17,17 +20,20 @@ export class AppHome {
   async changeIcon(iconName: string) {
     console.debug('ion-item clicked');
 
+    var disableIcons = this.iconNames.filter(name => name !== iconName)
+
     try {
-      const isSupported = await AppIcon.isSupported();
-      console.debug(`Alternate Icons Supported: `, isSupported.value);
-
-      let setIconName = await AppIcon.getName();
-      console.debug(`App Icon set to: `, setIconName.value);
-
-      await AppIcon.change({ name: iconName, suppressNotification: true });
-
-      setIconName = await AppIcon.getName();
-      console.debug(`App Icon set to: `, setIconName.value);
+      // const isSupported = await AppIcon.isSupported();
+      // console.debug(`Alternate Icons Supported: `,isSupported.value);
+  
+      // let setIconName = await AppIcon.getName();
+      // console.debug(`App Icon set to: `,setIconName.value);
+      
+      await AppIcon.change({name: iconName, suppressNotification: true, disable: disableIcons});
+      
+      // setIconName = await AppIcon.getName();
+      // console.debug(`App Icon set to: `,setIconName.value);
+      
     } catch (error) {
       console.debug(error);
     }
@@ -46,15 +52,15 @@ export class AppHome {
           <ion-list-header>
             <ion-label>Alternate Icons</ion-label>
           </ion-list-header>
-          <ion-item button onClick={() => this.changeIcon('ionic-icon')}>
+          <ion-item button onClick={() => this.changeIcon('ionic')}>
             <ion-thumbnail slot="start">
-              <img src="/assets/icon/ionic-icon.png" />
+              <img src="/assets/icon/ionic.png" />
             </ion-thumbnail>
             <ion-label>
               <h3>Ionic Icon</h3>
             </ion-label>
           </ion-item>
-          <ion-item button onClick={() => this.changeIcon('stencil-icon')}>
+          <ion-item button onClick={() => this.changeIcon('stencil')}>
             <ion-thumbnail slot="start">
               <img src="/assets/icon/icon192.png" />
             </ion-thumbnail>
@@ -62,9 +68,9 @@ export class AppHome {
               <h3>Stencil Icon</h3>
             </ion-label>
           </ion-item>
-          <ion-item button onClick={() => this.changeIcon('ionitron-icon')}>
+          <ion-item button onClick={() => this.changeIcon('ionitron')}>
             <ion-thumbnail slot="start">
-              <img src="/assets/icon/ionitron-icon.png" />
+              <img src="/assets/icon/ionitron.png" />
             </ion-thumbnail>
             <ion-label>
               <h3>Ionitron Icon</h3>
