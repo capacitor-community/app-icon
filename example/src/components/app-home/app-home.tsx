@@ -54,7 +54,7 @@ export class AppHome {
           </ion-list-header>
           <ion-item button onClick={() => this.changeIcon('ionic')}>
             <ion-thumbnail slot="start">
-              <img src="/assets/icon/ionic.png" />
+              <img alt='icon' src="/assets/icon/ionic.png" />
             </ion-thumbnail>
             <ion-label>
               <h3>Ionic Icon</h3>
@@ -62,7 +62,7 @@ export class AppHome {
           </ion-item>
           <ion-item button onClick={() => this.changeIcon('stencil')}>
             <ion-thumbnail slot="start">
-              <img src="/assets/icon/icon192.png" />
+              <img alt='icon' src="/assets/icon/icon192.png" />
             </ion-thumbnail>
             <ion-label>
               <h3>Stencil Icon</h3>
@@ -70,7 +70,7 @@ export class AppHome {
           </ion-item>
           <ion-item button onClick={() => this.changeIcon('ionitron')}>
             <ion-thumbnail slot="start">
-              <img src="/assets/icon/ionitron.png" />
+              <img alt='icon' src="/assets/icon/ionitron.png" />
             </ion-thumbnail>
             <ion-label>
               <h3>Ionitron Icon</h3>

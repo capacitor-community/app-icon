@@ -238,6 +238,7 @@ Reverts app icon to original.
 
 ### Interfaces
 
+
 #### IconOptions
 
 | Prop                       | Type                  | Description                                                                       | Since |
