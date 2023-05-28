@@ -39,7 +39,7 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: ${{ env.JAVA_VERSION }}
-      - run: npm i
+      - run: npm ci
       - run: npm run verify:android
 
   verify-ios:
@@ -53,5 +53,5 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - run: npm i
+      - run: npm ci
       - run: npm run verify:ios
