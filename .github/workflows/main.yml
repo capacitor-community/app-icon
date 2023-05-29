@@ -33,7 +33,7 @@ jobs:
       - name: Set up Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: 18.x
       - name: Set up Java ${{ env.JAVA_VERSION }}
         uses: actions/setup-java@v3
         with:
