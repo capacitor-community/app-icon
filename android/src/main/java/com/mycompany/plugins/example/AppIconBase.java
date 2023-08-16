@@ -10,6 +10,7 @@ import java.util.Objects;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.content.ComponentName;
 import android.content.pm.PackageManager;
@@ -17,6 +18,7 @@ import android.content.pm.PackageManager;
 public class AppIconBase {
 
     private Activity activity;
+    private Context context;
     private List<String> disableIconNames = new ArrayList<String>();
     private String activeIconName = "";
     private String packageName;
@@ -25,6 +27,8 @@ public class AppIconBase {
 
     public AppIconBase(Activity activity, Context context) {
         this.activity = activity;
+        this.context = context;
+
         this.packageName = context.getPackageName();
         pm = context.getApplicationContext().getPackageManager();
         activeIconName = "";
@@ -35,9 +39,11 @@ public class AppIconBase {
     }
 
     public String getName() {
-        ComponentName componentName = new ComponentName(this.activity, this.activity.getClass());
+        Intent intent = pm.getLaunchIntentForPackage(context.getPackageName());
+        ComponentName componentName = intent.getComponent();
         int status = pm.getComponentEnabledSetting(componentName);
-        if (status == PackageManager.COMPONENT_ENABLED_STATE_ENABLED) {
+
+        if (status == PackageManager.COMPONENT_ENABLED_STATE_ENABLED || status == PackageManager.COMPONENT_ENABLED_STATE_DEFAULT) {
             // The component is currently enabled
             String name = componentName.getShortClassName();
             if (Objects.equals(name, ".MainActivity")) {
