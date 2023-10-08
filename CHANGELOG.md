@@ -1,5 +1,11 @@
 # Change Log
 
+## [4.1.1](https://github.com/capacitor-community/app-icon/compare/v4.1.0...v4.1.1) (2023-10-08)
+
+### Bug Fixes
+
+* **android:** fix `getName` ([#43](https://github.com/capacitor-community/app-icon/issues/43))
+
 ## [4.1.0](https://github.com/capacitor-community/app-icon/compare/v4.0.0...v4.1.0) (2023-05-28)
 
 ### Features
