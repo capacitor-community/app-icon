@@ -89,53 +89,25 @@ Each alternate icon is represented by an [`<activity-alias>`](https://developer.
 
 ## iOS Configuration
 
-### Add Alternate Icons
+> Taken from https://www.youtube.com/watch?v=AT89ofYpWTU
 
-Add the alternate icons directly to your iOS project or in a subdirectory.
+### Create the alternate icons in assets catalog
 
-### Setup Info.plist
+In XCode go to Assets and create the App Icons.  
+Then fill with images 1024x1024px
 
-Add the `CFBundleIcons` key to `Info.plist` with `CFBundleAlternateIcons` dictionary. Each alternate icon needs to be specified.
+![XCode Assets Alternate Icons](./media/xcode_assets.png)
 
-<img src="https://github.com/capacitor-community/app-icon/blob/main/media/xcode_project.png" width="500px" />
+> The name of the asset should correspond to the name used in the code
 
-Providing every resolution for each alternative is not required. By including the icon with the highest supported resolution, iOS will handle the other resolutions by scalling down the large one provided.
+### Change build settings
 
-From Apple:
+1. Visit Build Settings
+2. Search For App icon,
+3. Select "yes" for `Include All App Icon Assets`
+4. Include a list (in `Alternate App Icon Sets`) with precise names of the app icons in the Assets Catalogue.
 
-> When specifying icon filenames, it is best to omit any filename extensions. Omitting the filename extension lets the system automatically detect high-resolution (@2x) versions of your image files using the standard-resolution image filename. If you include filename extensions, you must specify all image files (including the high-resolution variants) explicitly. The system looks for the icon files in the main resources directory of the bundle.
-
-```xml
-<key>CFBundleIcons</key>
-<dict>
-  <key>CFBundleAlternateIcons</key>
-  <dict>
-    <!-- The names to reference in your code -->
-    <key>ionic-icon</key>
-    <dict>
-      <key>UIPrerenderedIcon</key>
-      <true/>
-      <key>CFBundleIconFiles</key>
-      <array>
-        <!-- Filenames-->
-        <string>ionic-icon</string>
-      </array>
-    </dict>
-    <!-- ... additional alternates if any ... -->
-  </dict>
-</dict>
-```
-
-### Supporting iPad
-
-For iPad specific version of an icon, there is an additional key to add in Info.plist.
-
-```xml
-<key>CFBundleIcons~ipad</key>
-<dict>
-  <!-- same as above  -->
-</dict>
-```
+![Build Settings XCode](./media/xcode_build_settings.png)
 
 ## Usage
 
