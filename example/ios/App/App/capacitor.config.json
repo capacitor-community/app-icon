@@ -9,5 +9,13 @@
 			"launchShowDuration": 0
 		}
 	},
-	"cordova": {}
+	"cordova": {},
+	"packageClassList": [
+		"AppIcon",
+		"AppIcon",
+		"AppPlugin",
+		"DevicePlugin",
+		"HapticsPlugin",
+		"KeyboardPlugin"
+	]
 }
