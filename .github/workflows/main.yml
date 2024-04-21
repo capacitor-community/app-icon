@@ -46,7 +46,7 @@ jobs:
 
   verify-ios:
     name: Verify iOS
-    runs-on: macos-latest
+    runs-on: macos-14
     # needs: lint
     steps:
       - name: Checkout
