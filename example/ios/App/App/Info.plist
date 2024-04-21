@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-        <string>example</string>
+	<string>example</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -40,8 +40,6 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>To Take Photos and Video</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Always allow Geolocation?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow Geolocation?</string>
 	<key>NSMicrophoneUsageDescription</key>
@@ -73,42 +71,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
-    <key>CFBundleIcons</key>
-    <dict>
-        <key>CFBundleAlternateIcons</key>
-        <dict>
-            <!-- The name you use in code -->
-            <key>ionic-icon</key>
-            <dict>
-                <key>UIPrerenderedIcon</key>
-                <true/>
-                <key>CFBundleIconFiles</key>
-                <array>
-                    <!-- The actual filenames. Don't list the @2x/@3x files here, and you can use just the biggest one if you like -->
-                    <string>ionic-icon</string>
-                </array>
-            </dict>
-            <key>ionitron-icon</key>
-            <dict>
-                <key>UIPrerenderedIcon</key>
-                <true/>
-                <key>CFBundleIconFiles</key>
-                <array>
-                    <!-- The actual filenames. Don't list the @2x/@3x files here, and you can use just the biggest one if you like -->
-                    <string>ionitron-icon</string>
-                </array>
-            </dict>
-            <key>stencil-icon</key>
-            <dict>
-                <key>UIPrerenderedIcon</key>
-                <true/>
-                <key>CFBundleIconFiles</key>
-                <array>
-                    <!-- The actual filenames. Don't list the @2x/@3x files here, and you can use just the biggest one if you like -->
-                    <string>stencil-icon</string>
-                </array>
-            </dict>
-        </dict>
-    </dict>
 </dict>
 </plist>

@@ -13,9 +13,6 @@
 		504EC30D1FED79650016851F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504EC30B1FED79650016851F /* Main.storyboard */; };
 		504EC30F1FED79650016851F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 504EC30E1FED79650016851F /* Assets.xcassets */; };
 		504EC3121FED79650016851F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504EC3101FED79650016851F /* LaunchScreen.storyboard */; };
-		6C75BC5D260956A4001D6D8C /* stencil-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C75BC5C260956A4001D6D8C /* stencil-icon.png */; };
-		6C75BC60260956AB001D6D8C /* ionitron-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C75BC5F260956AB001D6D8C /* ionitron-icon.png */; };
-		6C75BC6426095757001D6D8C /* ionic-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C75BC6326095757001D6D8C /* ionic-icon.png */; };
 		6CA96339260938650052EF08 /* public in Resources */ = {isa = PBXBuildFile; fileRef = 6CA96338260938650052EF08 /* public */; };
 		E0919CDF06B2B78F5AC5638D /* Pods_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8494654FAA1E2CBFD35BBD68 /* Pods_App.framework */; };
 /* End PBXBuildFile section */
@@ -29,9 +26,6 @@
 		504EC30E1FED79650016851F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		504EC3111FED79650016851F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		504EC3131FED79650016851F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C75BC5C260956A4001D6D8C /* stencil-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stencil-icon.png"; path = "../../../../src/assets/icon/stencil-icon.png"; sourceTree = "<group>"; };
-		6C75BC5F260956AB001D6D8C /* ionitron-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ionitron-icon.png"; path = "../../../../src/assets/icon/ionitron-icon.png"; sourceTree = "<group>"; };
-		6C75BC6326095757001D6D8C /* ionic-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ionic-icon.png"; path = "../../../../src/assets/icon/ionic-icon.png"; sourceTree = "<group>"; };
 		6CA96338260938650052EF08 /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
 		8494654FAA1E2CBFD35BBD68 /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B43B80CC6554ED2F938B29AE /* Pods-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.debug.xcconfig"; path = "Target Support Files/Pods-App/Pods-App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,7 +73,6 @@
 		504EC3061FED79650016851F /* App */ = {
 			isa = PBXGroup;
 			children = (
-				6C75BC5826095672001D6D8C /* AlternateIcons */,
 				6CA96338260938650052EF08 /* public */,
 				50379B222058CBB4000EE86E /* capacitor.config.json */,
 				504EC3071FED79650016851F /* AppDelegate.swift */,
@@ -92,23 +85,12 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		6C75BC5826095672001D6D8C /* AlternateIcons */ = {
-			isa = PBXGroup;
-			children = (
-				6C75BC5C260956A4001D6D8C /* stencil-icon.png */,
-				6C75BC6326095757001D6D8C /* ionic-icon.png */,
-				6C75BC5F260956AB001D6D8C /* ionitron-icon.png */,
-			);
-			path = AlternateIcons;
-			sourceTree = "<group>";
-		};
 		BD0A62101659FC9DE8009DE3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				B43B80CC6554ED2F938B29AE /* Pods-App.debug.xcconfig */,
 				EB22F58BE931B312E0E183B8 /* Pods-App.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -176,11 +158,8 @@
 				504EC3121FED79650016851F /* LaunchScreen.storyboard in Resources */,
 				504EC30F1FED79650016851F /* Assets.xcassets in Resources */,
 				50379B232058CBB4000EE86E /* capacitor.config.json in Resources */,
-				6C75BC6426095757001D6D8C /* ionic-icon.png in Resources */,
-				6C75BC5D260956A4001D6D8C /* stencil-icon.png in Resources */,
 				504EC30D1FED79650016851F /* Main.storyboard in Resources */,
 				6CA96339260938650052EF08 /* public in Resources */,
-				6C75BC60260956AB001D6D8C /* ionitron-icon.png in Resources */,
 				2FAD9763203C412B000D30F8 /* config.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,7 +348,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B43B80CC6554ED2F938B29AE /* Pods-App.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "ionitron ionic stencil";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -387,7 +368,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EB22F58BE931B312E0E183B8 /* Pods-App.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "ionitron ionic stencil";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
