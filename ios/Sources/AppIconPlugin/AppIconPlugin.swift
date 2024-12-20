@@ -1,8 +1,17 @@
 import Foundation
 import Capacitor
 
-@objc(AppIcon)
-public class AppIcon: CAPPlugin {
+@objc(AppIconPlugin)
+public class AppIconPlugin: CAPPlugin, CAPBridgedPlugin {
+    public let identifier = "AppIconPlugin"
+    public let jsName = "AppIcon"
+    public let pluginMethods: [CAPPluginMethod] = [
+        CAPPluginMethod(name: "isSupported", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "appIconBadgeNumber", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "getName", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "change", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "reset", returnType: CAPPluginReturnPromise),
+    ]
 
     @objc func isSupported(_ call: CAPPluginCall) {
         DispatchQueue.main.sync {
