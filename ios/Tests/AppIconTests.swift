@@ -1,8 +1,8 @@
 import XCTest
 import Capacitor
-@testable import Plugin
+@testable import AppIconPlugin
 
-class PluginTests: XCTestCase {
+class AppIconPluginTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
