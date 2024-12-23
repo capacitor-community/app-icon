@@ -7,7 +7,7 @@ public class AppIconPlugin: CAPPlugin, CAPBridgedPlugin {
     public let jsName = "AppIcon"
     public let pluginMethods: [CAPPluginMethod] = [
         CAPPluginMethod(name: "isSupported", returnType: CAPPluginReturnPromise),
-        CAPPluginMethod(name: "appIconBadgeNumber", returnType: CAPPluginReturnPromise),
+        // CAPPluginMethod(name: "appIconBadgeNumber", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "getName", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "change", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "reset", returnType: CAPPluginReturnPromise),
