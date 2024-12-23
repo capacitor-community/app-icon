@@ -11,8 +11,7 @@
 	},
 	"cordova": {},
 	"packageClassList": [
-		"AppIcon",
-		"AppIcon",
+		"AppIconPlugin",
 		"AppPlugin",
 		"DevicePlugin",
 		"HapticsPlugin",
