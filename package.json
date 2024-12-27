@@ -10,7 +10,8 @@
     "android/src/main/",
     "android/build.gradle",
     "dist/",
-    "ios/Plugin/",
+    "ios/Sources",
+    "Package.swift",
     "CapacitorCommunityAppIcon.podspec"
   ],
   "scripts": {
