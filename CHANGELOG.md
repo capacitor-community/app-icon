@@ -1,5 +1,11 @@
 # Change Log
 
+## [6.0.0](https://github.com/capacitor-community/app-icon/compare/v5.0.0...v6.0.0) (2025-01-22)
+
+### Features
+
+* Capacitor 7 Support
+
 ## [4.1.1](https://github.com/capacitor-community/app-icon/compare/v4.1.0...v4.1.1) (2023-10-08)
 
 ### Bug Fixes
