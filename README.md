@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/maintenance/yes/2024?style=flat-square" />
+  <img src="https://img.shields.io/maintenance/yes/2025?style=flat-square" />
   <a href="https://www.npmjs.com/package/@capacitor-community/app-icon"><img src="https://img.shields.io/npm/l/@capacitor-community/app-icon?style=flat-square" /></a>
 <br>
   <a href="https://www.npmjs.com/package/@capacitor-community/app-icon"><img src="https://img.shields.io/npm/dw/@capacitor-community/app-icon?style=flat-square" /></a>
@@ -27,8 +27,6 @@
 > This plugin only changes the main app icon on the device homescreen. The icon in springboard and in other areas will not change and continue to show the original. (iOS)
 
 > Changing the app icon is only allowed when the app is in the foreground (iOS).
-
-> Android support is currently in beta. See the [android-support](https://github.com/capacitor-community/app-icon/tree/android-support) branch for more info.
 
 ## Installation
 
