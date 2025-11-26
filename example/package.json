@@ -15,18 +15,18 @@
     "generate": "stencil generate"
   },
   "devDependencies": {
-    "@capacitor/cli": "^7.0.0",
-    "@ionic/core": "^8.4.1",
-    "@stencil/core": "^4.23.0"
+    "@capacitor/cli": "^8.0.0-beta.0",
+    "@ionic/core": "^8.7.11",
+    "@stencil/core": "^4.38.3"
   },
   "dependencies": {
     "@capacitor-community/app-icon": "file:..",
-    "@capacitor/android": "^7.0.0",
-    "@capacitor/app": "^7.0.0",
-    "@capacitor/core": "^7.0.0",
-    "@capacitor/device": "^7.0.0",
-    "@capacitor/haptics": "^7.0.0",
-    "@capacitor/ios": "^7.0.0",
-    "@capacitor/keyboard": "^7.0.0"
+    "@capacitor/android": "^8.0.0-beta.0",
+    "@capacitor/app": "^8.0.0-beta.0",
+    "@capacitor/core": "^8.0.0-beta.0",
+    "@capacitor/device": "^8.0.0-beta.0",
+    "@capacitor/haptics": "^8.0.0-beta.0",
+    "@capacitor/ios": "^8.0.0-beta.0",
+    "@capacitor/keyboard": "^8.0.0-beta.0"
   }
 }
