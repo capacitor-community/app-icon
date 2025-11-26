@@ -10,7 +10,7 @@ let package = Package(
             targets: ["AppIconPlugin"])
     ],
     dependencies: [
-        .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", from: "8.0.0-beta.0")
+        .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", from: "8.0.0-alpha.3")
     ],
     targets: [
         .target(
