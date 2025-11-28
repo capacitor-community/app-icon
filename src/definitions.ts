@@ -10,15 +10,19 @@ export interface IconOptions {
   disable?: string[];
   /**
    * Flag controlling the in app notification which shows after icon is changed. (iOS)
+   * @deprecated This parameter is ignored as it no longer works reliably on iOS 17+ and risks App Store rejection. The system notification will always be shown.
+   * @since 6.1.0
    */
-  suppressNotification: boolean;
+  suppressNotification?: boolean;
 }
 
 export interface ResetOptions {
   /**
    * Flag controlling the in app notification which shows after icon is changed (iOS).
+   * @deprecated This parameter is ignored as it no longer works reliably on iOS 17+ and risks App Store rejection. The system notification will always be shown.
+   * @since 6.1.0
    */
-  suppressNotification: boolean;
+  suppressNotification?: boolean;
 
   /**
    * Name of icons to disable. This is not used for iOS, but required for Android.

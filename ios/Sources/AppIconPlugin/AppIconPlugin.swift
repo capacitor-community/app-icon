@@ -30,21 +30,18 @@ public class AppIconPlugin: CAPPlugin, CAPBridgedPlugin {
     }
 
     @objc func reset(_ call: CAPPluginCall) {
-        let suppressNotification = call.getBool("suppressNotification") ?? true
-
-        setIcon(iconName: nil, suppressNotification: suppressNotification, call)
+        let _ = call.getBool("suppressNotification") // Deprecated: parameter is ignored
+        setIcon(iconName: nil, call)
     }
 
     @objc func change(_ call: CAPPluginCall) {
-
         guard let iconName = call.getString("name") else {
             call.reject("Must provide an icon name.")
             return
         }
 
-        let suppressNotification = call.getBool("suppressNotification") ?? true
-
-        setIcon(iconName: iconName, suppressNotification: suppressNotification, call)
+        let _ = call.getBool("suppressNotification") // Deprecated: parameter is ignored
+        setIcon(iconName: iconName, call)
     }
 
     func setIcon(iconName: String?, suppressNotification: Bool, _ call: CAPPluginCall) {
