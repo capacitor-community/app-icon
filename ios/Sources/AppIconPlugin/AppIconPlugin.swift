@@ -35,8 +35,10 @@ public class AppIconPlugin: CAPPlugin, CAPBridgedPlugin {
     }
 
     @objc func change(_ call: CAPPluginCall) {
-        guard let iconName = call.getString("name") else {
-            call.reject("Must provide an icon name.", nil)
+        let iconName = call.getString("name") ?? ""
+        
+        guard !iconName.isEmpty else {
+            call.reject("Must provide an icon name.")
             return
         }
 
@@ -44,10 +46,11 @@ public class AppIconPlugin: CAPPlugin, CAPBridgedPlugin {
     }
 
     func setIcon(iconName: String?, suppressNotification: Bool = false, _ call: CAPPluginCall) {
-        DispatchQueue.main.sync {
+        DispatchQueue.main.async {
             // Check if the app supports alternating icons
             guard UIApplication.shared.supportsAlternateIcons else {
-                return call.reject("Alternate icons not supported.", nil)
+                call.reject("Alternate icons not supported.")
+                return
             }
 
             if suppressNotification {
@@ -65,9 +68,9 @@ public class AppIconPlugin: CAPPlugin, CAPBridgedPlugin {
                 }
 
             } else {
-                UIApplication.shared.setAlternateIconName(iconName) { (error) in
+                UIApplication.shared.setAlternateIconName(iconName) { error in
                     if let error = error {
-                        call.reject("App icon failed due to \(error.localizedDescription)", nil)
+                        call.reject(error.localizedDescription, nil, error)
                     } else {
                         call.resolve()
                     }
