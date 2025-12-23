@@ -10,7 +10,7 @@ public class AppIconPlugin: CAPPlugin, CAPBridgedPlugin {
         // CAPPluginMethod(name: "appIconBadgeNumber", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "getName", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "change", returnType: CAPPluginReturnPromise),
-        CAPPluginMethod(name: "reset", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "reset", returnType: CAPPluginReturnPromise)
     ]
 
     @objc func isSupported(_ call: CAPPluginCall) {
@@ -30,9 +30,8 @@ public class AppIconPlugin: CAPPlugin, CAPBridgedPlugin {
     }
 
     @objc func reset(_ call: CAPPluginCall) {
-        let suppressNotification = call.getBool("suppressNotification") ?? true
 
-        setIcon(iconName: nil, suppressNotification: suppressNotification, call)
+        setIcon(iconName: nil, suppressNotification: false, call)
     }
 
     @objc func change(_ call: CAPPluginCall) {
@@ -42,12 +41,10 @@ public class AppIconPlugin: CAPPlugin, CAPBridgedPlugin {
             return
         }
 
-        let suppressNotification = call.getBool("suppressNotification") ?? true
-
-        setIcon(iconName: iconName, suppressNotification: suppressNotification, call)
+        setIcon(iconName: iconName, suppressNotification: false, call)
     }
 
-    func setIcon(iconName: String?, suppressNotification: Bool, _ call: CAPPluginCall) {
+    func setIcon(iconName: String?, suppressNotification: Bool = false, _ call: CAPPluginCall) {
         DispatchQueue.main.sync {
             // Check if the app supports alternating icons
             guard UIApplication.shared.supportsAlternateIcons else {
