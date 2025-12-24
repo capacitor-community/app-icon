@@ -10,7 +10,7 @@ public class AppIconPlugin: CAPPlugin, CAPBridgedPlugin {
         // CAPPluginMethod(name: "appIconBadgeNumber", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "getName", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "change", returnType: CAPPluginReturnPromise),
-        CAPPluginMethod(name: "reset", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "reset", returnType: CAPPluginReturnPromise)
     ]
 
     @objc func isSupported(_ call: CAPPluginCall) {
@@ -24,34 +24,33 @@ public class AppIconPlugin: CAPPlugin, CAPBridgedPlugin {
     @objc func getName(_ call: CAPPluginCall) {
         DispatchQueue.main.sync {
             call.resolve([
-                "value": UIApplication.shared.alternateIconName
+                "value": UIApplication.shared.alternateIconName as Any
             ])
         }
     }
 
     @objc func reset(_ call: CAPPluginCall) {
-        let suppressNotification = call.getBool("suppressNotification") ?? true
 
-        setIcon(iconName: nil, suppressNotification: suppressNotification, call)
+        setIcon(iconName: nil, suppressNotification: false, call)
     }
 
     @objc func change(_ call: CAPPluginCall) {
-
-        guard let iconName = call.getString("name") else {
+        let iconName = call.getString("name") ?? ""
+        
+        guard !iconName.isEmpty else {
             call.reject("Must provide an icon name.")
             return
         }
 
-        let suppressNotification = call.getBool("suppressNotification") ?? true
-
-        setIcon(iconName: iconName, suppressNotification: suppressNotification, call)
+        setIcon(iconName: iconName, suppressNotification: false, call)
     }
 
-    func setIcon(iconName: String?, suppressNotification: Bool, _ call: CAPPluginCall) {
-        DispatchQueue.main.sync {
+    func setIcon(iconName: String?, suppressNotification: Bool = false, _ call: CAPPluginCall) {
+        DispatchQueue.main.async {
             // Check if the app supports alternating icons
             guard UIApplication.shared.supportsAlternateIcons else {
-                return call.reject("Alternate icons not supported.")
+                call.reject("Alternate icons not supported.")
+                return
             }
 
             if suppressNotification {
@@ -69,9 +68,9 @@ public class AppIconPlugin: CAPPlugin, CAPBridgedPlugin {
                 }
 
             } else {
-                UIApplication.shared.setAlternateIconName(iconName) { (error) in
+                UIApplication.shared.setAlternateIconName(iconName) { error in
                     if let error = error {
-                        call.reject("App icon failed to due to \(error.localizedDescription)")
+                        call.reject(error.localizedDescription, nil, error)
                     } else {
                         call.resolve()
                     }
