@@ -15,7 +15,7 @@
     "generate": "stencil generate"
   },
   "devDependencies": {
-    "@capacitor/cli": "^8.0.0",
+    "@capacitor/cli": "^8.0.2",
     "@ionic/core": "^8.4.1",
     "@stencil/core": "^4.36.3"
   },
