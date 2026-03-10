@@ -73,11 +73,8 @@ public class AppIconBase {
                 );
             }
 
-            // Always disable main app icon
-            pm.setComponentEnabledSetting(
-                    new ComponentName(this.packageName, this.packageName + ".MainActivity"),
-                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP
-            );
+            // Do not disable main app icon
+            // DONT_KILL_APP will not work if we disable the currently enabled alias at runtime
         } catch (JSONException ignore) {
             // do nothing
         }
