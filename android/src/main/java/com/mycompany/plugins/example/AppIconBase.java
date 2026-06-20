@@ -22,6 +22,7 @@ public class AppIconBase {
     private List<String> disableIconNames = new ArrayList<String>();
     private String activeIconName = "";
     private String packageName;
+    private String classPackageName;
     PackageManager pm;
 
 
@@ -30,6 +31,15 @@ public class AppIconBase {
         this.context = context;
 
         this.packageName = context.getPackageName();
+
+        var fullClassName = activity.getClass().getName();
+        int lastDot = fullClassName.lastIndexOf('.');
+        if (lastDot != -1) {
+          this.classPackageName = fullClassName.substring(0, lastDot);
+        } else {
+          this.classPackageName = "";
+        }
+
         pm = context.getApplicationContext().getPackageManager();
         activeIconName = "";
     }
@@ -61,21 +71,21 @@ public class AppIconBase {
             List<String> newList = disableNames.toList();
 
             pm.setComponentEnabledSetting(
-                    new ComponentName(this.packageName, this.packageName + "." + enableName),
+                    new ComponentName(this.packageName, this.classPackageName + "." + enableName),
                     PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP
             );
 
             for (String value : newList) {
-                Log.i("AppIconBase", this.packageName + "." + value);
+                Log.i("AppIconBase", this.classPackageName + "." + value);
                 pm.setComponentEnabledSetting(
-                        new ComponentName(this.packageName, this.packageName + "." + value),
+                        new ComponentName(this.packageName, this.classPackageName + "." + value),
                         PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP
                 );
             }
 
             // Always disable main app icon
             pm.setComponentEnabledSetting(
-                    new ComponentName(this.packageName, this.packageName + ".MainActivity"),
+                    new ComponentName(this.packageName, this.classPackageName + ".MainActivity"),
                     PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP
             );
         } catch (JSONException ignore) {
@@ -89,13 +99,13 @@ public class AppIconBase {
             List<String> newList = disableNames.toList();
             // Reset the icon to the default icon
             pm.setComponentEnabledSetting(
-                    new ComponentName(packageName, packageName + ".MainActivity"),
+                    new ComponentName(packageName, this.classPackageName + ".MainActivity"),
                     PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP
             );
             for (String value : newList) {
-                Log.i("AppIconBaseReset", this.packageName + "." + value);
+                Log.i("AppIconBaseReset", this.classPackageName + "." + value);
                 pm.setComponentEnabledSetting(
-                        new ComponentName(this.packageName, this.packageName + "." + value),
+                        new ComponentName(this.packageName, this.classPackageName + "." + value),
                         PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP
                 );
             }
