@@ -28,6 +28,16 @@
 
 > Changing the app icon is only allowed when the app is in the foreground (iOS).
 
+
+## Dependency Updates
+
+This repository uses Dependabot for version update pull requests. Configuration lives in [`.github/dependabot.yml`](.github/dependabot.yml).
+
+- Ecosystems covered: npm (root and example), Gradle (plugin and example app), Swift Package Manager, and GitHub Actions.
+- Cadence: weekly for root npm and GitHub Actions, monthly for example app, Gradle, and Swift dependencies.
+- Grouping: high-churn dependency families such as `@capacitor/*` are grouped to reduce pull request noise.
+- Merge policy: all Dependabot pull requests are reviewed and merged manually.
+
 ## Installation
 
 ```bash

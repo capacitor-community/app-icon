@@ -1,0 +1,103 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: UTC
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps)"
+      prefix-development: "chore(deps-dev)"
+      include: scope
+    cooldown:
+      semver-major-days: 14
+      semver-minor-days: 3
+      semver-patch-days: 1
+    groups:
+      capacitor:
+        patterns:
+          - "@capacitor/*"
+      tooling:
+        patterns:
+          - "@ionic/*"
+          - "@capacitor/docgen"
+          - eslint
+          - prettier
+          - prettier-plugin-java
+          - rimraf
+          - rollup
+          - swiftlint
+          - typescript
+
+  - package-ecosystem: npm
+    directory: /example
+    schedule:
+      interval: monthly
+      time: "08:00"
+      timezone: UTC
+    open-pull-requests-limit: 2
+    commit-message:
+      prefix: "chore(example-deps)"
+      include: scope
+    cooldown:
+      semver-major-days: 14
+      semver-minor-days: 5
+      semver-patch-days: 2
+    groups:
+      capacitor:
+        patterns:
+          - "@capacitor/*"
+      example-tooling:
+        patterns:
+          - "@stencil/*"
+          - "@ionic/*"
+
+  - package-ecosystem: gradle
+    directory: /android
+    schedule:
+      interval: monthly
+      time: "08:00"
+      timezone: UTC
+    open-pull-requests-limit: 2
+    commit-message:
+      prefix: "chore(android-deps)"
+      include: scope
+    cooldown:
+      default-days: 3
+
+  - package-ecosystem: gradle
+    directory: /example/android
+    schedule:
+      interval: monthly
+      time: "08:00"
+      timezone: UTC
+    open-pull-requests-limit: 2
+    commit-message:
+      prefix: "chore(example-android-deps)"
+      include: scope
+    cooldown:
+      default-days: 3
+
+  - package-ecosystem: swift
+    directory: /
+    schedule:
+      interval: monthly
+      time: "08:00"
+      timezone: UTC
+    open-pull-requests-limit: 2
+    commit-message:
+      prefix: "chore(ios-deps)"
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: UTC
+    open-pull-requests-limit: 2
+    commit-message:
+      prefix: "chore(ci-deps)"
