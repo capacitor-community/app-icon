@@ -35,6 +35,20 @@ npm install @capacitor-community/app-icon
 npx cap sync
 ```
 
+### iOS: Swift Package Manager and CocoaPods
+
+Capacitor 8 creates new iOS projects with Swift Package Manager (SPM), and this plugin supports SPM. It also ships a CocoaPods podspec, so CocoaPods projects keep working. In both cases the install steps above are all you need. The plugin requires iOS 15 or later.
+
+To start a new project on CocoaPods instead of SPM, add the iOS platform with:
+
+```bash
+npx cap add ios --packagemanager CocoaPods
+```
+
+The podspec ships in the npm package and `npx cap sync` installs it from `node_modules`. The plugin isn't published to CocoaPods trunk, so [trunk becoming read-only](https://blog.cocoapods.org/CocoaPods-Specs-Repo) (planned for December 2, 2026) doesn't affect it.
+
+To move an existing CocoaPods project to SPM, run `npx cap spm-migration-assistant` and follow the two manual Xcode steps in the [Capacitor SPM guide](https://capacitorjs.com/docs/ios/spm).
+
 ## Configuration
 
 The alternate icons need to be included within the app bundle and referenced in the project prior to using this plugin. It is not possible to switch to any icon on the fly without adding it to the project first. Below are the configurations steps for each platform.
