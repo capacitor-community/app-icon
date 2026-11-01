@@ -35,6 +35,28 @@ npm install @capacitor-community/app-icon
 npx cap sync
 ```
 
+### iOS
+
+Swift Package Manager is the default iOS setup. CocoaPods is the fallback.
+
+`Package.swift` names the package and the library product `CapacitorCommunityAppIcon`, sets the iOS platform to 15 (`.iOS(.v15)`), and depends on `https://github.com/ionic-team/capacitor-swift-pm.git` from `8.0.0`. `CapacitorCommunityAppIcon.podspec` uses the pod name `CapacitorCommunityAppIcon` and an iOS deployment target of `15.0`.
+
+Since Capacitor 8, `npx cap add ios` creates an SPM project ([environment setup](https://capacitorjs.com/docs/getting-started/environment-setup)). `npm install` and `npx cap sync` read `Package.swift` from the installed package and link the `CapacitorCommunityAppIcon` library.
+
+For the CocoaPods fallback, create the iOS project with that package manager, then install and sync:
+
+```bash
+npx cap add ios --packagemanager CocoaPods
+npm install @capacitor-community/app-icon
+npx cap sync
+```
+
+On a CocoaPods app, `npx cap sync` adds `pod 'CapacitorCommunityAppIcon'` with a `:path` pointing at the installed package (the `node_modules` directory that contains `CapacitorCommunityAppIcon.podspec`). CocoaPods loads that podspec from disk. The podspec compiles `ios/Sources` (`s.source_files = 'ios/Sources/**/*.{swift,h,m,c,cc,mm,cpp}'`). Those sources, `Package.swift`, and the podspec are included in the npm package.
+
+> `CapacitorCommunityAppIcon` is not published on CocoaPods trunk. The podspec ships inside the npm package and Capacitor consumes it from `node_modules`, so the [December 2, 2026 switch of trunk to read-only](https://blog.cocoapods.org/CocoaPods-Specs-Repo) does not affect this plugin.
+
+An existing CocoaPods app can move to SPM with `npx cap spm-migration-assistant` and the manual Xcode steps in the [Capacitor SPM guide](https://capacitorjs.com/docs/ios/spm).
+
 ## Configuration
 
 The alternate icons need to be included within the app bundle and referenced in the project prior to using this plugin. It is not possible to switch to any icon on the fly without adding it to the project first. Below are the configurations steps for each platform.
