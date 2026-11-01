@@ -35,27 +35,19 @@ npm install @capacitor-community/app-icon
 npx cap sync
 ```
 
-### iOS
+### iOS: Swift Package Manager and CocoaPods
 
-Swift Package Manager is the default iOS setup. CocoaPods is the fallback.
+Capacitor 8 creates new iOS projects with Swift Package Manager (SPM), and this plugin supports SPM. It also ships a CocoaPods podspec, so CocoaPods projects keep working. In both cases the install steps above are all you need. The plugin requires iOS 15 or later.
 
-`Package.swift` names the package and the library product `CapacitorCommunityAppIcon`, sets the iOS platform to 15 (`.iOS(.v15)`), and depends on `https://github.com/ionic-team/capacitor-swift-pm.git` from `8.0.0`. `CapacitorCommunityAppIcon.podspec` uses the pod name `CapacitorCommunityAppIcon` and an iOS deployment target of `15.0`.
-
-Since Capacitor 8, `npx cap add ios` creates an SPM project ([environment setup](https://capacitorjs.com/docs/getting-started/environment-setup)). `npm install` and `npx cap sync` read `Package.swift` from the installed package and link the `CapacitorCommunityAppIcon` library.
-
-For the CocoaPods fallback, create the iOS project with that package manager, then install and sync:
+To start a new project on CocoaPods instead of SPM, add the iOS platform with:
 
 ```bash
 npx cap add ios --packagemanager CocoaPods
-npm install @capacitor-community/app-icon
-npx cap sync
 ```
 
-On a CocoaPods app, `npx cap sync` adds `pod 'CapacitorCommunityAppIcon'` with a `:path` pointing at the installed package (the `node_modules` directory that contains `CapacitorCommunityAppIcon.podspec`). CocoaPods loads that podspec from disk. The podspec compiles `ios/Sources` (`s.source_files = 'ios/Sources/**/*.{swift,h,m,c,cc,mm,cpp}'`). Those sources, `Package.swift`, and the podspec are included in the npm package.
+The podspec ships in the npm package and `npx cap sync` installs it from `node_modules`. The plugin isn't published to CocoaPods trunk, so [trunk becoming read-only](https://blog.cocoapods.org/CocoaPods-Specs-Repo) (planned for December 2, 2026) doesn't affect it.
 
-> `CapacitorCommunityAppIcon` is not published on CocoaPods trunk. The podspec ships inside the npm package and Capacitor consumes it from `node_modules`, so the [December 2, 2026 switch of trunk to read-only](https://blog.cocoapods.org/CocoaPods-Specs-Repo) does not affect this plugin.
-
-An existing CocoaPods app can move to SPM with `npx cap spm-migration-assistant` and the manual Xcode steps in the [Capacitor SPM guide](https://capacitorjs.com/docs/ios/spm).
+To move an existing CocoaPods project to SPM, run `npx cap spm-migration-assistant` and follow the two manual Xcode steps in the [Capacitor SPM guide](https://capacitorjs.com/docs/ios/spm).
 
 ## Configuration
 
